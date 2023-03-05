@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex LaunchX</title>
+    <link rel="stylesheet" href="pokedex.css">
+    
+</head>
+<body class="back">
+   
+    <img src="./pokedex2.jpg" width="1000px" style="top:0px;">
+    <input type="text" placeholder="pikachu" id="pokeName" name="pokeName" class="placeholder"><br>
+    <img src="./pokeball.png" alt="Pokemon" id="pokeImg" width="250px" class="pokeimg"><br>
+    
+
+<div id="pokename" class="pokeimg1" style="left: 305px; top: 270px; font-size: 15px;"></div>
+<div id="pokeHe" class="pokeimg1" style="left: 305px; top: 290px;font-size: 15px;"></div>
+<div id="pokeWe" class="pokeimg1" style="left: 305px; top: 310px;font-size: 15px;"></div>
+<div id="poketype" class="pokeimg1" style="left: 595px; top: 565px;font-size: 25px;"></div>
+<div id="pokeitem" class="pokeimg1" style="left: 775px; top: 570px;font-size: 20px; "></div>
+<div id="pokemove1" class="pokeimg1" style="left: 305px; top: 330px;font-size: 15px;"></div>
+<div id="pokemove2" class="pokeimg1" style="left: 305px; top: 350px;font-size: 15px;"></div>
+<div id="pokemove3" class="pokeimg1" style="left: 305px; top: 370px;font-size: 15px;"></div>
+<div id="pokemove4" class="pokeimg1" style="left: 305px; top: 390px;font-size: 15px;"></div>
+
+<div id="pokeid" class="pokeimg1" style="left: 595px; top: 480px;font-size: 20px; color:purple"></div>
+<div id="pokeorder" class="pokeimg1" style="left: 710px; top: 480px;font-size: 20px; color: purple;"></div>
+
+<button onclick="fetchPokemon()" class="boton"></button>
+<div class="grafica">
+  <canvas id="miCanvas"></canvas>
+ </div> 
+</body>
+<footer>
+    <script src="pokedex.js"></script>
+    <script src="Chart.js"></script>
+
+</footer>
+</html>
