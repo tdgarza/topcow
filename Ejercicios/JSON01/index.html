@@ -7,6 +7,36 @@
     <title>Ordenes con JSON</title>
 </head>
 <body>
-    
+    <h1>Menú de opciones</h1>
+    <form id="order-form">
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="name"><br>
+
+      <label for="burger-type">Tipo de hamburguesa:</label>
+      <select id="burger-type" name="burger-type">
+        <option value="sencilla">Sencilla</option>
+        <option value="doble">Doble</option>
+        <option value="triple">Triple</option>
+      </select><br>
+
+      <label for="side">Acompañamiento:</label>
+      <select id="side" name="side">
+        <option value="papas-fritas">Papas fritas</option>
+        <option value="onion-rings">Onion rings</option>
+        <option value="ensalada">Ensalada</option>
+      </select><br>
+
+      <label for="drink">Bebida:</label>
+      <select id="drink" name="drink">
+        <option value="refresco">Refresco</option>
+        <option value="agua">Agua</option>
+        <option value="cerveza">Cerveza</option>
+      </select><br>
+
+      <button type="submit">Enviar orden</button>
+    </form>
+
+    <script src="order.js"></script>
+
 </body>
 </html>
