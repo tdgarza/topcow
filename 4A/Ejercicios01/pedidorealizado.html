@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/luar-galaxy-outline" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/pirate-keg" rel="stylesheet">
+    <title>Pagina 1</title>
+</head>
+<body>
+    <div style="margin: 24px;">
+        <nav class="navbar navbar-inverse navbar-stick-static-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Inicio</a>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="menu.html">Menu</a>
+                    </li>
+                    <li class="active">
+                        <a href="pedido.html">Pedido</a>
+                    </li>
+                    <li>
+                        <a href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
+    <h1>PEDIDO REALIZADO</h1>
+    <h3>Con exito</h3>
+    <ul>
+        <li><strong>Nombre: </strong> <span id="nombre"></span></li>
+        <li><strong>Apellido: </strong> <span id="apellido"></span></li>
+        <li><strong>Telefono: </strong> <span id="telefono"></span></li>
+        <li><strong>Direccion: </strong> <span id="direccion"></span></li>
+        <li><strong>Menu: </strong> <span id="menu"></span></li>
+        <li><strong>Colonia: </strong> <span id="colonia"></span></li>
+        <li><strong>Tomate: </strong> <span id="tomate"></span></li>
+        <li><strong>Cebolla: </strong> <span id="cebolla"></span></li>
+        <li><strong>Lechuga: </strong> <span id="lechuga"></span></li>
+        <li><strong>Pepinos: </strong> <span id="pepinos"></span></li>
+    
+
+
+    </ul>
+    <script>
+        const orden=JSON.parse(localStorage.getItem("orden"));
+        document.getElementById("nombre").textContent=orden.nombre;
+        document.getElementById("apellido").textContent=orden.apellido;
+        document.getElementById("telefono").textContent=orden.telefono;
+        document.getElementById("direccion").textContent=orden.direccion;
+        document.getElementById("colonia").textContent=orden.colonia;
+        document.getElementById("tomate").textContent=orden.tomate;
+        document.getElementById("cebolla").textContent=orden.cebolla;
+        document.getElementById("lechuga").textContent=orden.lechuga;
+        document.getElementById("pepinos").textContent=orden.pepinos;
+
+
+
+    </script>
+</body>
+</html>

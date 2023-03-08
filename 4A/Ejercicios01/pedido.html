@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/luar-galaxy-outline" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/pirate-keg" rel="stylesheet">
+    <title>Pagina 1</title>
+</head>
+<body>
+    <div style="margin: 24px;">
+        <nav class="navbar navbar-inverse navbar-stick-static-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Inicio</a>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="menu.html">Menu</a>
+                    </li>
+                    <li class="active">
+                        <a href="pedido.html">Pedido</a>
+                    </li>
+                    <li>
+                        <a href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
+    <titulo1>Pedido</titulo1><br>
+    
+    <form id="pedido">
+        <p>Nombre: <input type="text" id="nombre" name="nombre" size="30"> </p>
+        <p>Apellido: <input type="text" id="apellido" name="apellido" size="30"> </p>
+        <p>Telefono: <input type="text" id="telefono" name="telefono" size="20"> </p>
+        <p>Direccion: <input type="text" id="direccion" name="direccion" size="30"> </p>
+        <p>Colonia: <input type="text" id="colonia" name="colonia" size="30"> </p>
+        <hr>
+        <select name="menu" id="menu">
+            <optgroup label="Tortas">
+            <option value="hamburguesa">Hamburguesa</option>
+            <option value="clubsandwich">Club Sandwich</option>
+            <option value="tortasahogadas">Tortas ahogadas</option>
+            </optgroup>
+            <optgroup label="Tacos">
+                <option value="tacosbistek">Tacos de Bistek</option>
+                <option value="tacosalpastor">Tacos al Pastor</option>
+                <option value="sincronizada">Sincronizada</option>
+                </optgroup>
+
+        </select>
+         
+        <titulo1>Verduras</titulo1><br>
+         Vegetales: 
+         <input type="checkbox" id="tomate" checked><label for="tomate"> Tomate</label>
+         <input type="checkbox" id="cebolla" checked><label for="cebolla"> Cebolla</label>
+         <input type="checkbox" id="lechuga" checked><label for="lechuga"> Lechuga</label>
+         <input type="checkbox" id="pepinos" checked><label for="pepinos"> Pepinos</label>
+        
+           <input type="submit" value="Enviar"> 
+           <input type="reset" value="Borrar">
+    </form>
+    <button type="button" onclick="suma()">Presioname</button> 
+    <p id="sumando">Resultado: </p>
+    <script>
+        var x;
+        const form=document.getElementById("pedido");
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+            const formData=new FormData(form);
+            const orden={
+                
+                nombre:formData.get("nombre"),
+                apellido:formData.get("apellido"),
+                telefono:formData.get("telefono"),
+                direccion:formData.get("direccion"),
+                colonia:formData.get("colonia"),
+                menu:formData.get("menu"),
+                tomate:document.getElementById("tomate").checked ? "Si" : "No",
+                cebolla:document.getElementById("cebolla").checked ? "Si" : "No",
+                lechuga:document.getElementById("lechuga").checked ? "Si" : "No",
+                pepinos:document.getElementById("pepinos").checked ? "Si" : "No"
+            };
+            const precio={
+                hamburguesa:100,
+                tomate:30,
+                cebolla:30,
+                pepinos:30
+            };
+
+            localStorage.setItem("orden",JSON.stringify(orden));
+            window.location.href="pedidorealizado.html";
+        });
+        let text=x;
+      document.getElementById("sumando").innerHTML = text;  
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Calculadora</title>
+</head>
+<body>
+	<div class="calc">
+		<input type="text" id="ans">
+		<div class="btn">
+			<input type="button" value='C' onclick="Clear()">
+			<input type="button" value='%' onclick="Solve('%')">
+			<input type="button" value='←' onclick="Back('←')">
+			<input type="button" value='/' onclick="Solve('/')">
+			<br>
+			<input type="button" value='7' onclick="Solve('7')">
+			<input type="button" value='8' onclick="Solve('8')">
+			<input type="button" value='9' onclick="Solve('9')">
+			<input type="button" value='x' onclick="Solve('*')">
+			<br>
+			<input type="button" value='4' onclick="Solve('4')">
+			<input type="button" value='5' onclick="Solve('5')">
+			<input type="button" value='6' onclick="Solve('6')">
+			<input type="button" value='-' onclick="Solve('-')">
+			<br>
+			<input type="button" value='1' onclick="Solve('1')">
+			<input type="button" value='2' onclick="Solve('2')">
+			<input type="button" value='3' onclick="Solve('3')">
+			<input type="button" value='+' onclick="Solve('+')">
+			<br>
+			<input type="button" value='00' onclick="Solve('00')">
+			<input type="button" value='0' onclick="Solve('0')">
+			<input type="button" value='.' onclick="Solve('.')">
+			<input type="button" value='=' onclick="Result()">
+			<br>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function Solve(val){
+			var v=document.getElementById('ans');
+			v.value +=val;
+		}
+		function Result(){
+			var v1=document.getElementById('ans').value;
+			var v2=eval(v1);
+			document.getElementById('ans').value=v2;
+		}
+		function Clear(){
+			var input=document.getElementById('ans');
+			input.value='';
+		}
+		function Back(){
+			var back=document.getElementById('ans');
+			back.value=back.value.slice(0,-1);
+		}
+	</script>
+
+</body>
+</html>

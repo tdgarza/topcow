@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="menu-form">
+        <h2>Comida</h2>
+        <div>
+          <label for="hamburguesa">Hamburguesa ($10.99)</label>
+          <select name="hamburguesa" id="hamburguesa">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div>
+          <label for="pizza">Pizza ($12.99)</label>
+          <select name="pizza" id="pizza">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div>
+          <label for="ensalada">Ensalada ($7.99)</label>
+          <select name="ensalada" id="ensalada">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+      
+        <h2>Aditamentos</h2>
+        <div>
+          <label for="papas">Papas fritas ($3.99)</label>
+          <input type="checkbox" name="papas" id="papas" value="3.99">
+        </div>
+        <div>
+          <label for="cebolla">Cebolla ($0.99)</label>
+          <input type="checkbox" name="cebolla" id="cebolla" value="0.99">
+        </div>
+        <div>
+          <label for="tocino">Tocino ($1.99)</label>
+          <input type="checkbox" name="tocino" id="tocino" value="1.99">
+        </div>
+      
+        <h2>Bebidas</h2>
+        <div>
+          <label for="refresco">Refresco ($2.99)</label>
+          <select name="refresco" id="refresco">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div>
+          <label for="cerveza">Cerveza ($4.99)</label>
+          <select name="cerveza" id="cerveza">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+      
+        <button type="submit">Enviar</button>
+      </form>
+      
+      <h2>Orden:</h2>
+      <div id="order-list"></div>
+
+        <h2>Total:</h2>
+        <div id="total-price">$0.00</div>
+      </form>
+      <script>
+        // Seleccionamos el formulario y el div donde vamos a mostrar la orden y el total
+const menuForm = document.getElementById('menu-form');
+const orderList = document.getElementById('order-list');
+const totalPrice = document.getElementById('total-price');
+
+// Precios de cada producto
+const prices = {
+  hamburguesa: 10.99,
+  pizza: 12.99,
+  ensalada: 7.99,
+  papas: 3.99,
+  cebolla: 0.99,
+  tocino: 1.99,
+  refresco: 2.99,
+  cerveza: 4.99
+};
+
+// Manejador de eventos para el formulario
+menuForm.addEventListener('submit', e => {
+  e.preventDefault(); // Evitamos que se envíe el formulario
+
+  // Obtenemos los valores seleccionados en los selects y checkboxes
+  const formData = new FormData(menuForm);
+  const selectedProducts = Object.fromEntries(formData.entries());
+
+  // Creamos la lista de la orden y el total del precio
+  let orderHTML = '';
+  let total = 0;
+  for (const product in selectedProducts) {
+    if (selectedProducts[product] !== '0') {
+      const productPrice = prices[product] * parseInt(selectedProducts[product]);
+      orderHTML += `<li>${selectedProducts[product]} ${product} ($${productPrice.toFixed(2)})</li>`;
+      total += productPrice;
+    }
+  }
+
+  // Actualizamos la lista de la orden y el total del precio
+  orderList.innerHTML = orderHTML;
+  totalPrice.innerHTML = `$${total.toFixed(2)}`;
+});
+
+      </script>
+      
+      
+</body>
+</html>
