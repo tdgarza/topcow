@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Menú de Hamburguesas</title>
+</head>
+<body>
+  <form id="order-form">
+    <h2>Seleccione los ingredientes de su hamburguesa:</h2>
+    <div>
+      <label for="patty">Carne:</label>
+      <select id="patty">
+      </select>
+    </div>
+    <div>
+      <label for="cheese">Queso:</label>
+      <select id="cheese">
+      </select>
+    </div>
+    <div>
+      <label for="toppings">Ingredientes adicionales:</label>
+      <select id="toppings" multiple>
+      </select>
+    </div>
+    <div>
+      <label for="sauce">Salsa:</label>
+      <select id="sauce">
+      </select>
+    </div>
+    <div>
+      <label for="quantity">Cantidad:</label>
+      <input type="number" id="quantity" value="1" min="1">
+    </div>
+    <div>
+      <label for="total">Total a pagar:</label>
+      <input type="text" id="total" readonly>
+    </div>
+    <button type="submit">Hacer pedido</button>
+  </form>
+
+  <script src="menu.json"></script>
+  <script src="menu.js"></script>
+</body>
+</html>

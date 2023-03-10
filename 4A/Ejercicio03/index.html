@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/luar-galaxy-outline" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/pirate-keg" rel="stylesheet">
+    <title>Pagina 1</title>
 </head>
 <body>
+    <div style="margin: 24px;">
+        <nav class="navbar navbar-inverse navbar-stick-static-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Inicio</a>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="menu.html">Menu</a>
+                    </li>
+                    <li class="active">
+                        <a href="pedido.html">Pedido</a>
+                    </li>
+                    <li>
+                        <a href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div> 
     <form id="menu-form">
         <h2>Comida</h2>
         <div>
@@ -90,7 +112,13 @@
             const menuForm = document.getElementById('menu-form');
             const orderList = document.getElementById('order-list');
             const totalPrice = document.getElementById('total-price');
-            // Precios de cada producto
+            /*
+            En esta sección, se seleccionan los elementos HTML con los ID 'menu-form', 
+            'order-list' y 'total-price' y se almacenan en constantes utilizando el 
+            método document.getElementById(). Esto permite que el script interactúe 
+            con estos elementos en el DOM.
+            */
+           // Precios de cada producto
             const prices = {
             hamburguesa: 10.99,
             pizza: 12.99,
@@ -108,6 +136,11 @@
             // Obtenemos los valores seleccionados en los selects y checkboxes
             const formData = new FormData(menuForm);
             const selectedProducts = Object.fromEntries(formData.entries());
+            /*
+            Se agrega un manejador de eventos al formulario que escucha el evento "submit" (enviar) 
+            y cuando se activa, se ejecuta el siguiente código. Se utiliza el método FormData() 
+            para obtener los valores de los elementos del formulario y se almacenan en el objeto 
+            selectedProducts.*/
 
             // Creamos la lista de la orden y el total del precio
             let orderHTML = '';
@@ -119,9 +152,23 @@
                 total += productPrice;
                 }
             }
+            /*
+            En esta sección, se crea una lista de orden (orderHTML) y se calcula el precio total 
+            (total) utilizando los precios del objeto prices. Se recorre el objeto selectedProducts 
+            con un bucle for...in y se verifica si el valor es distinto de cero, si es así, 
+            se calcula el precio total del producto multiplicando la cantidad de ese producto 
+            seleccionado por el precio de ese producto del objeto prices. Luego se agrega el 
+            producto y su precio a la lista de la orden en formato HTML y se actualiza el precio 
+            total.
+            */
             // Actualizamos la lista de la orden y el total del precio
             orderList.innerHTML = orderHTML;
             totalPrice.innerHTML = `$${total.toFixed(2)}`;
+            /*
+            Finalmente, se actualiza el HTML de los elementos del DOM orderList y totalPrice 
+            con la lista de la orden y el precio total, respectivamente. La función toFixed() 
+            se utiliza para formatear el precio total con dos decimales.
+            */
             });
       </script>
 </body>

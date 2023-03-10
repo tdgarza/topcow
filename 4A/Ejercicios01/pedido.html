@@ -40,7 +40,7 @@
         <hr>
         <select name="menu" id="menu">
             <optgroup label="Tortas">
-            <option value="hamburguesa">Hamburguesa</option>
+            <option id="hamburguesa">Hamburguesa</option>
             <option value="clubsandwich">Club Sandwich</option>
             <option value="tortasahogadas">Tortas ahogadas</option>
             </optgroup>
@@ -62,8 +62,7 @@
            <input type="submit" value="Enviar"> 
            <input type="reset" value="Borrar">
     </form>
-    <button type="button" onclick="suma()">Presioname</button> 
-    <p id="sumando">Resultado: </p>
+   
     <script>
         var x;
         const form=document.getElementById("pedido");
@@ -72,24 +71,18 @@
             const formData=new FormData(form);
             const orden={
                 
-                nombre:formData.get("nombre"),
+                nombre:getElementById("nombre"),
                 apellido:formData.get("apellido"),
                 telefono:formData.get("telefono"),
                 direccion:formData.get("direccion"),
                 colonia:formData.get("colonia"),
-                menu:formData.get("menu"),
+                menu:get("menu"),
                 tomate:document.getElementById("tomate").checked ? "Si" : "No",
                 cebolla:document.getElementById("cebolla").checked ? "Si" : "No",
                 lechuga:document.getElementById("lechuga").checked ? "Si" : "No",
                 pepinos:document.getElementById("pepinos").checked ? "Si" : "No"
             };
-            const precio={
-                hamburguesa:100,
-                tomate:30,
-                cebolla:30,
-                pepinos:30
-            };
-
+           
             localStorage.setItem("orden",JSON.stringify(orden));
             window.location.href="pedidorealizado.html";
         });
