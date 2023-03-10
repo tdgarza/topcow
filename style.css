@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: cursive;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to right, pink, blue);
+}
+.calc{
+    width: 30%;
+    height: 60%;
+    background-color: transparent;
+    position: absolute;
+    border: 2px solid white;
+    border-radius: 15px;
+}
+#ans{
+    width: 90%;
+    margin-top: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2.5rem;
+    border-radius: 10px;
+}
+.btn input[type='button']{
+    width: 30px;
+    padding: 2px;
+    margin: 4px;
+    position: relative;
+    left: 23px;
+    top: 20px;
+    height: 55px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.5s ease;
+    background-color: transparent;
+    border-radius: 6px;
+}
+.btn input[type='button']:hover{
+    background-color: pink;
+    color: blue;
+}
