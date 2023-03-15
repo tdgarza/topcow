@@ -38,21 +38,21 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		function Solve(val){
-			var v=document.getElementById('ans');
+		const Solve = (val)=> {
+			const v=document.getElementById('ans');
 			v.value +=val;
 		}
-		function Result(){
-			var v1=document.getElementById('ans').value;
-			var v2=eval(v1);
+		const Result = () =>{
+			const v1=document.getElementById('ans').value;
+			const v2=eval(v1);
 			document.getElementById('ans').value=v2;
 		}
-		function Clear(){
-			var input=document.getElementById('ans');
+		const Clear = () =>{
+			const input=document.getElementById('ans');
 			input.value='';
 		}
-		function Back(){
-			var back=document.getElementById('ans');
+		const Back = () =>{
+			const back=document.getElementById('ans');
 			back.value=back.value.slice(0,-1);
 		}
 	</script>

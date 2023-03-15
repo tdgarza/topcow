@@ -1,0 +1,32 @@
+[
+    {
+      "nombre": "Hamburguesa clásica",
+      "descripcion": "Carne de res, lechuga, tomate, cebolla y salsa especial.",
+      "precio": 8.99,
+      "imagen": "https://via.placeholder.com/150"
+    },
+    {
+      "nombre": "Hamburguesa con queso",
+      "descripcion": "Carne de res, queso cheddar, lechuga, tomate y cebolla.",
+      "precio": 9.99,
+      "imagen": "https://via.placeholder.com/150"
+    },
+    {
+      "nombre": "Hamburguesa doble",
+      "descripcion": "Dos carnes de res, lechuga, tomate, cebolla y salsa especial.",
+      "precio": 11.99,
+      "imagen": "https://via.placeholder.com/150"
+    },
+    {
+      "nombre": "Hamburguesa vegetariana",
+      "descripcion": "Tofu, lechuga, tomate, cebolla y salsa especial.",
+      "precio": 8.99,
+      "imagen": "https://via.placeholder/150"
+    },
+    {
+        "nombre": "Hamburguesa vegetariana",
+        "descripcion": "Tofu, lechuga, tomate, cebolla y salsa especial.",
+        "precio": 8.99,
+        "imagen": "https://via.placeholder.com/150"
+    }
+]

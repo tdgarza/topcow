@@ -38,5 +38,25 @@
             <br>
         </div>
     </div>
+    <script>
+
+        const Solve = val =>{
+            const v=document.getElementById('ans');
+            v.value+=val;
+        }
+        const Result =() => {
+            const v1=document.getElementById('ans').value;
+            const v2=eval(v1);
+            document.getElementById('ans').value=v2; //esta es la que retorna el resultado.
+        }
+        const Clear = () =>{
+            const input=document.getElementById('ans');
+            input.value='';
+        }
+        const Back = () =>{
+            const back = document.getElementById('ans');
+            back.value=back.value.slice(0,-1);
+        }
+    </script>
 </body>
 </html>
