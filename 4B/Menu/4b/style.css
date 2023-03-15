@@ -1,0 +1,44 @@
+body{
+	background-color: #ef0606;
+}
+.center{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	width: 500px;
+
+}
+titulo{
+	font-family: 'Gunmetal', sans-serif;
+	font-size: 40px;
+	align-content: center;
+                                                
+}
+input:focus{
+	outline:4px solid blue;
+}
+hr{
+	color: black;
+}
+table{
+	margin-left: 200px;
+	background-color: grey; 
+	color: white; 
+	text-align: center; 
+	width: 700px;
+}
+th{
+	color: black;
+}
+hamburguesa{
+	color: orange;
+	font-weight: 700;
+	font-family: Arial, Helvetica, sans-serif;
+}
+rosa{
+	color:green;
+}
+morado{
+	color: purple;
+}

@@ -10,6 +10,9 @@ body{
 	background-image: linear-gradient(to left, pink, #00ddff);
 	height: 100vh;
 }
+nav{
+	color: white;
+}
 .calc{
 	width: 30%;
 	height: 60%;
