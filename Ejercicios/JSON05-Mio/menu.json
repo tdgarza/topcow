@@ -1,0 +1,23 @@
+{
+    "menu": [
+      {
+        "name": "Hamburguesa clásica",
+        "description": "Carne de res, lechuga, tomate, cebolla y queso cheddar",
+        "price": 8.99,
+        "image": "img/hamburguesa.jpg"
+      },
+      {
+        "name": "Pizza margarita",
+        "description": "Mozzarella, tomate y albahaca",
+        "price": 10.99,
+        "image": "img/pizza.jpg"
+      },
+      {
+        "name": "Ensalada César",
+        "description": "Lechuga, pollo, queso parmesano, crutones y aderezo César",
+        "price": 6.99,
+        "image": "img/ensalada.jpg"
+      }
+    ]
+  }
+  
