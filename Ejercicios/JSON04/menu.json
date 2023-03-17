@@ -1,0 +1,17 @@
+{
+	"entradas": [
+		{"nombre": "Ensalada", "precio": 8},
+		{"nombre": "Sopa del día", "precio": 6},
+		{"nombre": "Calamares fritos", "precio": 10}
+	],
+	"platos": [
+		{"nombre": "Pollo asado", "precio": 15},
+		{"nombre": "Lomo saltado", "precio": 18},
+		{"nombre": "Pescado al horno", "precio": 20}
+	],
+	"postres": [
+		{"nombre": "Tiramisú", "precio": 7},
+		{"nombre": "Cheesecake", "precio": 6},
+		{"nombre": "Mousse de chocolate", "precio": 8}
+	]
+}
