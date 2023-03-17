@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://fonts.cdnfonts.com/css/gun-metal" rel="stylesheet">
+
+
+	<title>Pagina 1</title>
+</head>
+<body>
+
+	<div style="margin:24px;">
+		<nav class="navbar navbar-light" style="background-color: #3D348B;">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">Inicio</a>
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="menu.html">Menu</a>
+					</li>
+					<li>
+						<a href="formulario.html">Formulario</a>
+					</li>
+					<li>
+						<a href="resultado.html">Resultado</a>
+					</li>
+					<li>
+						<a href="contacto.html">Contacto</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+<titulo>MENU DEL RESTAURANT</titulo>
+
+	<div id="menu"></div>
+	<script type="text/javascript">
+		fetch('menu.json')
+		.then(response=>response.json())
+		.then(data=>{
+			const menu=document.getElementById('menu');
+			data.menu.forEach(item=>{
+				const container=document.createElement('div');
+				container.classList.add('item');
+				container.innerHTML=`
+				<img src="${item.imagen}" alt="${item.nombre}">
+				${item.nombre}
+				${item.descripcion}
+				<p class="precio">${item.precio.toFixed(2)} pesos</p>
+				`;
+
+				menu.appendChild(container);
+
+			});
+		});
+	</script>
+
+</body>
+</html>
