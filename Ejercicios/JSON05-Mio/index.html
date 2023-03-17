@@ -24,8 +24,9 @@ fetch('menu.json')
 				const item = document.createElement('div');
 				item.innerHTML = `
 					<label>
-						<input type="checkbox" class="producto" data-precio="${producto.precio}">
-						${producto.nombre} ($${producto.precio})
+						<h2>${item.name}</h2>
+        <p>${item.description}</p>
+        <p class="price">${item.price.toFixed(2)}€</p>
 					</label>
 				`;
 				contenedor.appendChild(item);
