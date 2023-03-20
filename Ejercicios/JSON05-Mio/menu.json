@@ -7,17 +7,40 @@
         "image": "img/hamburguesa.jpg"
       },
       {
-        "name": "Pizza margarita",
+        "nombre": "Pizza margarita",
         "description": "Mozzarella, tomate y albahaca",
-        "price": 10.99,
+        "precio": 10.99,
         "image": "img/pizza.jpg"
       },
       {
-        "name": "Ensalada César",
+        "nombre": "Ensalada César",
         "description": "Lechuga, pollo, queso parmesano, crutones y aderezo César",
-        "price": 6.99,
+        "precio": 6.99,
+        "image": "img/ensalada.jpg"
+      }
+    ],
+
+    "extras": [
+      {
+        "nombre": "Tocino",
+        "description": "Carne de res, lechuga, tomate, cebolla y queso cheddar",
+        "precio": 8.99,
+        "image": "img/hamburguesa.jpg"
+      },
+      {
+        "nombre": "Pizza margarita",
+        "description": "Mozzarella, tomate y albahaca",
+        "precio": 10.99,
+        "image": "img/pizza.jpg"
+      },
+      {
+        "nombre": "Ensalada César",
+        "description": "Lechuga, pollo, queso parmesano, crutones y aderezo César",
+        "precio": 6.99,
         "image": "img/ensalada.jpg"
       }
     ]
+  
   }
+ 
   

@@ -1,23 +1,17 @@
 {
-    "menu": [
-      {
-        "nombre": "Hamburguesa clásica",
-        "description": "Carne de res, lechuga, tomate, cebolla y queso cheddar",
-        "precio": 8.99,
-        "image": "img/hamburguesa.jpg"
-      },
-      {
-        "nombre": "Pizza margarita",
-        "description": "Mozzarella, tomate y albahaca",
-        "precio": 10.99,
-        "image": "img/pizza.jpg"
-      },
-      {
-        "nombre": "Ensalada César",
-        "description": "Lechuga, pollo, queso parmesano, crutones y aderezo César",
-        "precio": 6.99,
-        "image": "img/ensalada.jpg"
-      }
-    ]
-  }
-  
+	"entradas": [
+		{"nombre": "Ensalada", "precio": 8},
+		{"nombre": "Sopa del día", "precio": 6},
+		{"nombre": "Calamares fritos", "precio": 10}
+	],
+	"platos": [
+		{"nombre": "Pollo asado", "precio": 15},
+		{"nombre": "Lomo saltado", "precio": 18},
+		{"nombre": "Pescado al horno", "precio": 20}
+	],
+	"postres": [
+		{"nombre": "Tiramisú", "precio": 7},
+		{"nombre": "Cheesecake", "precio": 6},
+		{"nombre": "Mousse de chocolate", "precio": 8}
+	]
+}

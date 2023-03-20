@@ -9,8 +9,13 @@
 	<div id="menu"></div>
 	<div id="resultado"></div>
     <script>
-        // Cargar datos del menú desde archivo JSON
+// Cargar datos del menú desde archivo JSON
+// ¡Claro que sí! Este es un código de JavaScript que utiliza la función fetch() para obtener datos de un archivo JSON llamado "menu.json".
+
 fetch('menu.json')
+//La función fetch() es una función de JavaScript que permite hacer solicitudes HTTP asíncronas, es decir, se puede hacer una solicitud para obtener datos de una API o un archivo JSON sin tener que recargar la página. En este caso, se utiliza para obtener los datos de "menu.json".
+
+//Luego, se encadenan dos funciones then(). La primera función then() convierte los datos obtenidos de "menu.json" en un objeto JavaScript utilizando el método json(). La segunda función then() es donde se realiza la mayor parte del trabajo.
 	.then(response => response.json())
 	.then(data => {
 		// Mostrar categorías de alimentos
@@ -18,15 +23,17 @@ fetch('menu.json')
 			const contenedor = document.createElement('div');
 			contenedor.innerHTML = `<h2>${categoria}</h2>`;
 			document.getElementById('menu').appendChild(contenedor);
+//En esta función, se utiliza el objeto data que se obtuvo de "menu.json" para mostrar las categorías de alimentos y los productos de cada categoría en la página web. Se utiliza un bucle forEach() para recorrer cada categoría y crear un elemento div para mostrar el nombre de la categoría en la página web. Luego, se utiliza otro bucle forEach() para recorrer cada producto en la categoría y crear un elemento div para mostrar el nombre y precio del producto en la página web.
+			
+// Mostrar productos de la categoría
 
-			// Mostrar productos de la categoría
+//Finalmente, se utiliza otro bucle forEach() para agregar un event listener a cada producto de la página. 
 			data[categoria].forEach(producto => {
 				const item = document.createElement('div');
 				item.innerHTML = `
 					<label>
-						<h2>${item.name}</h2>
-        <p>${item.description}</p>
-        <p class="price">${item.price.toFixed(2)}€</p>
+						<input type="checkbox" class="producto" data-precio="${producto.precio}">
+						${producto.nombre} ($${producto.precio})
 					</label>
 				`;
 				contenedor.appendChild(item);
@@ -41,6 +48,7 @@ fetch('menu.json')
 				productos.forEach(producto => {
 					if (producto.checked) {
 						suma += parseFloat(producto.dataset.precio);
+//Cuando un usuario selecciona un producto, se actualiza el total del precio de los productos seleccionados utilizando la propiedad dataset de cada producto para obtener su precio.
 					}
 				});
 				document.getElementById('resultado').innerHTML = `Total: $${suma.toFixed(2)}`;
@@ -48,6 +56,7 @@ fetch('menu.json')
 		});
 	})
 	.catch(error => console.error(error));
+
     </script>
 </body>
 </html>

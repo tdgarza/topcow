@@ -1,0 +1,51 @@
+{
+    "menu": [
+      {
+        "categoria": "Comida",
+        "productos": [
+          {
+            "nombre": "Hamburguesa",
+            "precio": 9.99
+          },
+          {
+            "nombre": "Pizza",
+            "precio": 11.99
+          },
+          {
+            "nombre": "Ensalada",
+            "precio": 7.99
+          }
+        ]
+      },
+      {
+        "categoria": "Bebidas",
+        "productos": [
+          {
+            "nombre": "Refresco",
+            "precio": 2.99
+          },
+          {
+            "nombre": "Cerveza",
+            "precio": 4.99
+          },
+          {
+            "nombre": "Agua",
+            "precio": 1.99
+          }
+        ]
+      },
+      {
+        "categoria": "Postres",
+        "productos": [
+          {
+            "nombre": "Pastel de Chocolate",
+            "precio": 5.99
+          },
+          {
+            "nombre": "Helado",
+            "precio": 3.99
+          }
+        ]
+      }
+    ]
+  }

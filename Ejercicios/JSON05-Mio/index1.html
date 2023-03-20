@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #dda44e;
+            color: white;
+        }
+        tr:nth-child(even) {background-color: #f2f2f2;}
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <h1>Menú de restaurante</h1>
+	<div id="menu"></div>
+	<div id="resultado"></div>
+    <script>
+       fetch('menu.json')
+	.then(response => response.json())
+	.then(data => {
+		// Crear tabla para mostrar el menú
+		const tabla = document.createElement('table');
+		tabla.innerHTML = `
+			<thead>
+				<tr>
+					<th>Categoría</th>
+                    <th>Imagen</th>
+					<th>Producto</th>
+					<th>Precio</th>
+					<th>Seleccionar</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		`;
+		document.getElementById('menu').appendChild(tabla);
+
+		// Agregar datos de cada categoría y producto a la tabla
+		Object.keys(data).forEach(categoria => {
+			data[categoria].forEach(producto => {
+				const fila = document.createElement('tr');
+				fila.innerHTML = `
+					<td>${categoria}</td>
+                    <td><img src="${producto.image}" alt="${producto.name}"></td>
+					<td>${producto.nombre}</td>
+					<td>$${producto.precio}</td>
+					<td><input type="checkbox" class="producto" data-precio="${producto.precio}"></td>
+				`;
+				tabla.querySelector('tbody').appendChild(fila);
+			});
+		});
+
+		// Calcular suma al seleccionar productos
+		const productos = document.querySelectorAll('.producto');
+		productos.forEach(producto => {
+			producto.addEventListener('change', () => {
+				let suma = 0;
+				productos.forEach(producto => {
+					if (producto.checked) {
+						suma += parseFloat(producto.dataset.precio);
+					}
+				});
+				document.getElementById('resultado').innerHTML = `Total: $${suma.toFixed(2)}`;
+			});
+		});
+	})
+	.catch(error => console.error(error));
+
+    </script>
+</body>
+</html>
