@@ -1,0 +1,54 @@
+{
+    "Menu": [
+      {
+        "nombre": "Hamburguesa clásica",
+        "description": "Carne de res, lechuga, tomate, cebolla y queso cheddar",
+        "precio": 8.99,
+        "image": "img/hamburguesa.jpg"
+      },
+      {
+        "nombre": "Pizza",
+        "description": "Mozzarella, tomate y albahaca",
+        "precio": 10.99,
+        "image": "img/pizza.jpg"
+      },
+      {
+        "nombre": "Ensalada César",
+        "description": "Lechuga, pollo, queso parmesano, crutones y aderezo César",
+        "precio": 6.99,
+        "image": "img/ensalada.jpg"
+      }
+    ],
+
+    "Extras": [
+      {
+        "nombre": "Tocino",
+        "description": "Carne de res, lechuga, tomate, cebolla y queso cheddar",
+        "precio": 8.99,
+        "image": "img/tocino.jpeg"
+      },
+      {
+        "nombre": "Pizza margarita",
+        "description": "Mozzarella, tomate y albahaca",
+        "precio": 10.99,
+        "image": "img/pizza.jpg"
+      },
+      {
+        "nombre": "Ensalada César",
+        "description": "Lechuga, pollo, queso parmesano, crutones y aderezo César",
+        "precio": 6.99,
+        "image": "img/ensalada.jpg"
+      }
+    ],
+    "Bebidas":[
+      {
+        "nombre": "Coca",
+        "description": "Lata de refresco de cola",
+        "precio": 1.99,
+        "image": "img/coca.jpg"
+      }
+    ]
+  
+  }
+ 
+  

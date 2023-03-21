@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://fonts.cdnfonts.com/css/gun-metal" rel="stylesheet">
+
+
+	<title>Pagina 1</title>
+</head>
+<body>
+
+	<div style="margin:24px;">
+		<nav class="navbar navbar-light" style="background-color: #3D348B;">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">Inicio</a>
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="menu.html">Menu</a>
+					</li>
+					<li>
+						<a href="formulario.html">Formulario</a>
+					</li>
+					<li>
+						<a href="resultado.html">Resultado</a>
+					</li>
+					<li>
+						<a href="contacto.html">Contacto</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+<titulo>MENU DEL RESTAURANT</titulo>
+
+	<div id="menu"></div>
+	<div id="resultado"></div>
+    <script>
+       fetch('menu.json')
+	.then(response => response.json())
+	.then(data => {
+		// Crear tabla para mostrar el menú
+		const tabla = document.createElement('table');
+		tabla.innerHTML = `
+			<thead>
+				<tr>
+					<th>Categoría</th>
+                    <th>Imagen</th>
+					<th>Producto</th>
+                    <th>Descripcion</th>
+					<th>Precio</th>
+					<th>Seleccionar</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		`;
+		document.getElementById('menu').appendChild(tabla);
+
+		// Agregar datos de cada categoría y producto a la tabla
+		Object.keys(data).forEach(categoria => {
+			data[categoria].forEach(producto => {
+				const fila = document.createElement('tr');
+				fila.innerHTML = `
+					<td>${categoria}</td>
+                    <td><img src="${producto.image}" alt="${producto.name}"></td>
+					<td>${producto.nombre}</td>
+                    <td>${producto.description}</td>
+					<td>$${producto.precio}</td>
+					<td><input type="checkbox" class="producto" data-precio="${producto.precio}"></td>
+				`;
+				tabla.querySelector('tbody').appendChild(fila);
+			});
+		});
+
+		// Calcular suma al seleccionar productos
+		const productos = document.querySelectorAll('.producto');
+		productos.forEach(producto => {
+			producto.addEventListener('change', () => {
+				let suma = 0;
+				productos.forEach(producto => {
+					if (producto.checked) {
+						suma += parseFloat(producto.dataset.precio);
+					}
+				});
+				document.getElementById('resultado').innerHTML = `<h1>Total: $${suma.toFixed(2)}</h1>`;
+			});
+		});
+	})
+	.catch(error => console.error(error));
+
+    </script>
+</body>
+</html>

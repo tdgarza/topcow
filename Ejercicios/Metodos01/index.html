@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cálculo de sistema 3x3 por Gauss</title>
+	<script>
+		function calcular() {
+			// Obtenemos los valores ingresados por el usuario
+			var a11 = parseFloat(document.getElementById("a11").value);
+			var a12 = parseFloat(document.getElementById("a12").value);
+			var a13 = parseFloat(document.getElementById("a13").value);
+			var b1 = parseFloat(document.getElementById("b1").value);
+			var a21 = parseFloat(document.getElementById("a21").value);
+			var a22 = parseFloat(document.getElementById("a22").value);
+			var a23 = parseFloat(document.getElementById("a23").value);
+			var b2 = parseFloat(document.getElementById("b2").value);
+			var a31 = parseFloat(document.getElementById("a31").value);
+			var a32 = parseFloat(document.getElementById("a32").value);
+			var a33 = parseFloat(document.getElementById("a33").value);
+			var b3 = parseFloat(document.getElementById("b3").value);
+
+			// Aplicamos el método de Gauss para resolver el sistema
+			var detA = a11*a22*a33 + a21*a32*a13 + a31*a12*a23 - a31*a22*a13 - a21*a12*a33 - a11*a32*a23;
+			var detX1 = b1*a22*a33 + b2*a32*a13 + b3*a12*a23 - b3*a22*a13 - b2*a12*a33 - b1*a32*a23;
+			var detX2 = a11*b2*a33 + a21*b3*a13 + a31*b1*a23 - a31*b2*a13 - a21*b1*a33 - a11*b3*a23;
+			var detX3 = a11*a22*b3 + a21*a32*b1 + a31*a12*b2 - a31*a22*b1 - a21*a12*b3 - a11*a32*b2;
+			var x1 = detX1/detA;
+			var x2 = detX2/detA;
+			var x3 = detX3/detA;
+
+			// Mostramos el resultado en la página
+			document.getElementById("resultado").innerHTML = "x1 = " + x1 + "<br>" + "x2 = " + x2 + "<br>" + "x3 = " + x3;
+		}
+	</script>
+</head>
+<body>
+	<h1>Cálculo de sistema 3x3 por Gauss</h1>
+	<p>Ingrese los valores del sistema:</p>
+	<form>
+		<table>
+			<tr>
+				<td><input type="number" id="a11"></td>
+				<td><input type="number" id="a12"></td>
+				<td><input type="number" id="a13"></td>
+				<td><input type="number" id="b1"></td>
+			</tr>
+			<tr>
+				<td><input type="number" id="a21"></td>
+				<td><input type="number" id="a22"></td>
+				<td><input type="number" id="a23"></td>
+				<td><input type="number" id="b2"></td>
+			</tr>
+			<tr>
+				<td><input type="number" id="a31"></td>
+                <td><input type="number" id="a32"></td>
+                <td><input type="number" id="a33"></td>
+                <td><input type="number" id="b3"></td>
+            </tr>
+        </table>
+        <br>
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+    <br>
+    <div id="resultado"></div>
+</body>
+</html>
