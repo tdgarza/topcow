@@ -1,5 +1,5 @@
 body{
-	background-color: #F7B801;
+	background-color: #C4E0F9;
 }
 .center{
 	display: block;
@@ -7,18 +7,16 @@ body{
 	margin-right: auto;
 	width: 50%;
 	width: 500px;
-
-
 }
 .navbar-stick-static-top {
 	background-color:#9933ff !important;
 	border:none;
   }
-titulo{
+h1{
 	font-family: 'Gunmetal', sans-serif;
 	font-size: 40px;
 	text-align: center;
-                                                
+	text-shadow: 5px 5px #67AAF9;                                              
 }
 input:focus{
 	outline:4px solid blue;
@@ -28,7 +26,7 @@ hr{
 }
 table{
 	margin-left: 200px;
-	background-color: #F2B5D4; 
+	
 	color: white; 
 	text-align: left; 
 	width: 700px;
@@ -47,10 +45,13 @@ th, td {
 	padding: 8px;
 }
 th {
-	background-color: #dda44e;
+	background-color: #B95F89;
 	color: white;
 }
-tr:nth-child(even) {background-color: #f2f2f2;}
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+	color: rgb(62, 33, 188);
+}
 img {
 	width: 100px;
 	height: 100px;
@@ -72,3 +73,81 @@ img{
 	border-radius: 10%;
 	box-shadow: black;
 }
+  .imagen1 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 400px;
+	height: 400px;
+	z-index: 1;
+  }
+  .imagen2 {
+	position: absolute;
+	top: 0px;
+	left: 400px;
+	width: 400px;
+	height: 400px;
+	z-index: 2;
+  }
+  .imagen3 {
+	position: absolute;
+	top: 0px;
+	left: 800px;
+	width: 400px;
+	height: 400px;
+	z-index: 3;
+
+  }
+  .imagen4 {
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	width: 200px;
+	height: 150px;
+	z-index: 5;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  .imagen5 {
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	width: 200px;
+	height: 150px;
+	z-index: 4;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  .imagen6 {
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	width: 200px;
+	height: 150px;
+	z-index: 3;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  .imagen7 {
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	width: 200px;
+	height: 150px;
+	z-index: 2;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  .imagen8 {
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	width: 200px;
+	height: 150px;
+	z-index: 1;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  .collage {
+	position: relative;
+	width: 1200px;
+	height: 800px;
+	
+	border-radius: 10px;
+	opacity: 0.9;
+  }
