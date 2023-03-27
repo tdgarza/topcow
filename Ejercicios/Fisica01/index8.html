@@ -51,6 +51,11 @@
           </form>
           
           <p id="resultado"></p>
+
+          <p>Velocidad: <span id="velocidad"></span></p>
+<p>Rapidez: <span id="rapidez"></span></p>
+<p>Aceleración: <span id="aceleracion"></span></p>
+
       </div>
     </div>
       
@@ -106,14 +111,17 @@ aceleracion = 0;
 // Mostrar resultados
 let resultado = '';
 
-resultado += 'Velocidad: ' + velocidad.toFixed(2) + ' ' + velocidadUnidad + '<br>';
+// resultado += 'Velocidad: ' + velocidad.toFixed(2) + ' ' + velocidadUnidad + '<br>';
 
-if (aceleracion !== 0) {
+/*if (aceleracion !== 0) {
 resultado += 'Rapidez: ' + rapidez.toFixed(2) + ' ' + velocidadUnidad + '<br>';
 resultado += 'Aceleración: ' + aceleracion.toFixed(2) + ' m/s^2';
 } else {
-resultado += 'Rapidez: ' + rapidez.toFixed(2) + ' ' + velocidadUnidad;
-}
+//resultado += 'Rapidez: ' + rapidez.toFixed(2) + ' ' + velocidadUnidad;
+}*/
+document.getElementById('velocidad').textContent = velocidad.toFixed(2) + ' ' + velocidadUnidad;
+document.getElementById('rapidez').textContent = rapidez.toFixed(2) + ' ' + velocidadUnidad;
+document.getElementById('aceleracion').textContent = aceleracion.toFixed(2) + ' m/s^2';
 
 document.getElementById('resultado').innerHTML = resultado;
 }
