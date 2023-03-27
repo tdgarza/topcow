@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Movimiento rectilíneo</h1>
+    <form id="formulario">
+      <div>
+        <label for="velocidad-inicial">Velocidad inicial:</label>
+        <input type="number" id="velocidad-inicial" name="velocidad-inicial" required>
+        <select id="unidades-velocidad-inicial" name="unidades-velocidad-inicial">
+          <option value="m/s">m/s</option>
+          <option value="pies/s">pies/s</option>
+        </select>
+      </div>
+      <div>
+        <label for="aceleracion">Aceleración:</label>
+        <input type="number" id="aceleracion" name="aceleracion" required>
+        <select id="unidades-aceleracion" name="unidades-aceleracion">
+          <option value="m/s^2">m/s^2</option>
+          <option value="pies/s^2">pies/s^2</option>
+        </select>
+      </div>
+      <div>
+        <label for="tiempo">Tiempo:</label>
+        <input type="number" id="tiempo" name="tiempo" required>
+        <select id="unidades-tiempo" name="unidades-tiempo">
+          <option value="segundos">segundos</option>
+          <option value="segundos_pies">segundos (pies)</option>
+        </select>
+      </div>
+      <button type="button" onclick="calcular()">Calcular</button>
+      <button type="button" onclick="graficar()">Graficar</button>
+    </form>
+    <div id="resultado"></div>
+    <canvas id="grafica"></canvas>  
+    <script>
+        // Variables globales para almacenar los datos del usuario
+let velocidadInicial;
+let aceleracion;
+let tiempo;
+let unidades;
+
+// Función para actualizar las variables globales con los datos del usuario
+function actualizarDatos() {
+  velocidadInicial = parseFloat($('#velocidad-inicial').val());
+  aceleracion = parseFloat($('#aceleracion').val());
+  tiempo = parseFloat($('#tiempo').val());
+  unidades = $('#unidades-velocidad-inicial').val() === 'm/s' ? 'metrico' : 'ingles';
+}
+
+// Función para convertir las unidades entre el sistema inglés y el sistema métrico
+function convertirUnidades(valor, unidad) {
+  if (unidad === 'pies') {
+    return valor * 0.3048
+} else if (unidad === 'pies/s') {
+return valor * 0.3048;
+} else if (unidad === 'pies/s^2') {
+return valor * 0.3048;
+} else {
+return valor;
+}
+}
+
+// Función para calcular el movimiento rectilíneo
+function calcular() {
+actualizarDatos();
+
+// Convertir unidades al sistema métrico
+if (unidades === 'ingles') {
+velocidadInicial = convertirUnidades(velocidadInicial, 'pies/s');
+aceleracion = convertirUnidades(aceleracion, 'pies/s^2');
+tiempo = tiempo / 0.3048;
+}
+
+// Calcular desplazamiento y velocidad final
+const desplazamiento = velocidadInicial * tiempo + 0.5 * aceleracion * tiempo ** 2;
+const velocidadFinal = velocidadInicial + aceleracion * tiempo;
+
+// Convertir unidades al sistema inglés
+if (unidades === 'ingles') {
+desplazamiento = convertirUnidades(desplazamiento, 'pies');
+velocidadFinal = convertirUnidades(velocidadFinal, 'pies/s');
+}
+
+// Mostrar resultados en la página HTML
+$('#resultado').html(Desplazamiento: ${desplazamiento.toFixed(2)} ${unidades === 'metrico' ? 'm' : 'pies'} <br> Velocidad final: ${velocidadFinal.toFixed(2)} ${unidades === 'metrico' ? 'm/s' : 'pies/s'});
+}
+
+// Función para graficar el movimiento rectilíneo
+function graficar() {
+actualizarDatos();
+
+// Convertir unidades al sistema métrico
+if (unidades === 'ingles') {
+velocidadInicial = convertirUnidades(velocidadInicial, 'pies/s');
+aceleracion = convertirUnidades(aceleracion, 'pies/s^2');
+tiempo = tiempo / 0.3048;
+}
+
+// Calcular posición y velocidad en cada instante de tiempo
+const posiciones = [];
+const velocidades = [];
+for (let t = 0; t <= tiempo; t += 0.1) {
+const posicion = velocidadInicial * t + 0.5 * aceleracion * t ** 2;
+const velocidad = velocidadInicial + aceleracion * t;
+posiciones.push(posicion);
+velocidades.push(velocidad);
+}
+
+// Convertir unidades al sistema inglés
+if (unidades === 'ingles') {
+posiciones = posiciones.map(posicion => convertirUnidades(posicion, 'pies'));
+velocidades = velocidades.map(velocidad => convertirUnidades(velocidad, 'pies/s'));
+}
+
+// Crear gráfica
+const ctx = document.getElementById('grafica').getContext('2d');
+const chart = new Chart(ctx, {
+type: 'line',
+data: {
+labels: posiciones.map((_, i) => i * 0.1),
+datasets: [{
+label: 'Posición',
+data: posiciones,
+borderColor: 'blue',
+backgroundColor: 'transparent',
+}, {
+label: 'Velocidad',
+data: velocidades,
+borderColor: 'red',
+backgroundColor: 'transparent',
+}],
+},
+options: {
+scales: {
+x: {
+title: {
+display: true,
+text: 'Tiempo (s)',
+},
+},
+y: {
+title:
+    </script>
+</body>
+</html>

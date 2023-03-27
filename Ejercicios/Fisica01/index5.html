@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Física</title>
+  </head>
+  <body>
+    <h1>Calculadora de Física</h1>
+    
+    <form>
+      <label for="distance">Distancia:</label>
+      <input type="number" id="distance" name="distance">
+      
+      <label for="time">Tiempo:</label>
+      <input type="number" id="time" name="time">
+      
+      <label for="initialVelocity">Velocidad inicial:</label>
+      <input type="number" id="initialVelocity" name="initialVelocity">
+      
+      <label for="finalVelocity">Velocidad final:</label>
+      <input type="number" id="finalVelocity" name="finalVelocity">
+      
+      <label for="unitSystem">Sistema de unidades:</label>
+      <select id="unitSystem" name="unitSystem">
+        <option value="metric">Métrico</option>
+        <option value="english">Inglés</option>
+      </select>
+      
+      <button type="button" onclick="calculate()">Calcular</button>
+    </form>
+    
+    <h2>Resultados:</h2>
+    
+    <div id="velocity"></div>
+    <div id="rapidez"></div>
+    <div id="acceleration"></div>
+    
+    <script>
+        // Función para convertir unidades de longitud
+function convertirLongitud(valor, unidadesDe, unidadesA) {
+    const conversiones = {
+        'metros': 1,
+        'kilómetros': 1000,
+        'pies': 0.3048,
+        'millas': 1609.34
+    };
+    const valorEnMetros = valor * conversiones[unidadesDe];
+    return valorEnMetros / conversiones[unidadesA];
+}
+
+// Función para convertir unidades de tiempo
+function convertirTiempo(valor, unidadesDe, unidadesA) {
+    const conversiones = {
+        'segundos': 1,
+        'minutos': 60,
+        'horas': 3600
+    };
+    const valorEnSegundos = valor * conversiones[unidadesDe];
+    return valorEnSegundos / conversiones[unidadesA];
+}
+
+// Función para convertir unidades de velocidad
+function convertirVelocidad(valor, unidadesDe, unidadesA) {
+    const conversiones = {
+        'metros/segundo': 1,
+        'kilómetros/hora': 0.277778,
+        'pies/segundo': 0.3048,
+        'millas/hora': 0.44704
+    };
+    const valorEnMetrosPorSegundo = valor * conversiones[unidadesDe];
+    return valorEnMetrosPorSegundo / conversiones[unidadesA];
+}
+
+// Función para calcular la velocidad
+function calcularVelocidad() {
+    const distancia = parseFloat(document.getElementById('distancia').value);
+    const tiempo = parseFloat(document.getElementById('tiempo').value);
+    const unidadesDistancia = document.getElementById('unidades-1').value;
+    const unidadesTiempo = document.getElementById('unidades-2').value;
+    const unidadesVelocidad = document.getElementById('unidades-3').value;
+
+    const distanciaEnMetros = convertirLongitud(distancia, unidadesDistancia, 'metros');
+    const tiempoEnSegundos = convertirTiempo(tiempo, unidadesTiempo, 'segundos');
+    const velocidadEnMetrosPorSegundo = distanciaEnMetros / tiempoEnSegundos;
+    const velocidadConvertida = convertirVelocidad(velocidadEnMetrosPorSegundo, 'metros/segundo', unidadesVelocidad);
+
+    document.getElementById('resultado-1').textContent = `La velocidad es: ${velocidadConvertida} ${unidadesVelocidad}`;
+}
+
+// Función para calcular la rapidez
+function calcularRapidez() {
+    const distancia = parseFloat(document.getElementById('distancia-2').value);
+    const tiempo = parseFloat(document.getElementById('tiempo-2').value);
+    const unidadesDistancia = document.getElementById('unidades-4').value;
+    const unidadesTiempo = document.getElementById('unidades-5').value;
+    const unidadesRapidez = document.getElementById('unidades-6').value;
+
+    const distanciaEnMetros = convertirLongitud(distancia, unidadesDistancia, 'metros');
+    const tiempoEnSegundos = convertirTiempo(tiempo, unidadesTiempo, 'segundos');
+    const rapidezEnMetrosPorSegundo = distanciaEnMetros / tiempoEnSegundos;
+    const rapidezConvertida = convertirVelocidad(rapidezEnMetrosPorSegundo, 'metros/segundo', unidadesRapidez);
+// Función para convertir unidades entre sistema inglés y métrico
+function convertUnits(value, from, to) {
+  const units = {
+    metric: {
+      mps: 1,
+      kmph: 3.6,
+    },
+    english: {
+      fps: 3.28084,
+      mph: 2.23694,
+    },
+  };
+
+  return value * units[from][to];
+}
+
+// Función para calcular la velocidad
+function calculateVelocity(distance, time, unitSystem) {
+  const velocity = distance / time;
+
+  if (unitSystem === 'english') {
+    return convertUnits(velocity, 'metric', 'fps');
+  }
+
+  return velocity;
+}
+
+// Función para calcular la rapidez
+function calculateRapidity(distance, time, unitSystem) {
+  const rapidez = Math.abs(distance) / time;
+
+  if (unitSystem === 'english') {
+    return convertUnits(rapidez, 'metric', 'mph');
+  }
+
+  return rapidez;
+}
+
+// Función para calcular la aceleración
+function calculateAcceleration(initialVelocity, finalVelocity, time, unitSystem) {
+  const acceleration = (finalVelocity - initialVelocity) / time;
+
+  if (unitSystem === 'english') {
+    return convertUnits(acceleration, 'metric', 'fps');
+  }
+
+  return acceleration;
+}
+
+   
+
+    </script>
+  </body>
+</html>

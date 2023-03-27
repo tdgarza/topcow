@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movimiento Rectilíneo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+  </head>
+  <body>
+    <h1>Movimiento Rectilíneo</h1>
+    <label for="distancia">Distancia:</label>
+    <input type="number" id="distancia" value="0">
+    <select id="unidadesDistancia">
+      <option value="metros">metros</option>
+      <option value="pies">pies</option>
+    </select>
+    <br>
+    <label for="velocidadInicial">Velocidad inicial:</label>
+    <input type="number" id="velocidadInicial" value="0">
+    <select id="unidadesVelocidad">
+      <option value="metrosSegundo">metros/segundo</option>
+      <option value="piesSegundo">pies/segundo</option>
+    </select>
+    <br>
+    <label for="aceleracion">Aceleración:</label>
+    <input type="number" id="aceleracion" value="0">
+    <select id="unidadesAceleracion">
+      <option value="metrosSegundoCuadrado">metros/segundo^2</option>
+      <option value="piesSegundoCuadrado">pies/segundo^2</option>
+    </select>
+    <br>
+    <button id="calcular">Calcular</button>
+    <div id="resultado"></div>
+    <canvas id="grafica"></canvas>
+    <script src="index.js"></script>
+  </body>
+</html>

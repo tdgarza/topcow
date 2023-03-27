@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form>
+        <label for="distance">Distancia:</label>
+        <input type="text" id="distance" name="distance" placeholder="Ej: 10 metros"><br>
+      
+        <label for="time">Tiempo:</label>
+        <input type="text" id="time" name="time" placeholder="Ej: 5 segundos"><br>
+      
+        <label for="velocity">Velocidad:</label>
+        <input type="text" id="velocity" name="velocity" readonly><br>
+      
+        <label for="rapidity">Rapidez:</label>
+        <input type="text" id="rapidity" name="rapidity" readonly><br>
+      
+        <label for="acceleration">Aceleración:</label>
+        <input type="text" id="acceleration" name="acceleration" readonly><br>
+      
+        <button type="button" onclick="calcular()">Calcular</button>
+      </form>
+      
+      <script>
+        function calcular() {
+          const distancia = document.getElementById("distance").value;
+          const tiempo = document.getElementById("time").value;
+      
+          // Convertir las unidades de distancia y tiempo a metros y segundos, respectivamente
+          let distanciaMetros = convertirUnidades(distancia);
+          let tiempoSegundos = convertirUnidades(tiempo, true);
+      
+          // Calcular la velocidad, rapidez y aceleración
+          let velocidad = distanciaMetros / tiempoSegundos;
+          let rapidez = Math.abs(velocidad); // Se toma el valor absoluto de la velocidad para obtener la rapidez
+          let aceleracion = velocidad / tiempoSegundos;
+      
+          // Convertir las unidades de velocidad y aceleración a km/h y m/s^2, respectivamente
+          velocidad = convertirUnidades(velocidad, false, true);
+          aceleracion = convertirUnidades(aceleracion, true, true);
+      
+          // Mostrar los resultados en los campos de texto correspondientes
+          document.getElementById("velocity").value = `${velocidad} km/h`;
+          document.getElementById("rapidity").value = `${rapidez} m/s`;
+          document.getElementById("acceleration").value = `${aceleracion} m/s^2`;
+        }
+      
+        function convertirUnidades(valor, tiempo = false, aMetrico = false) {
+          const metrosPorPie = 0.3048;
+          const segundosPorHora = 3600;
+      
+          if (tiempo) {
+            // Convertir el tiempo a segundos
+            if (valor.includes("hora")) {
+              valor = parseFloat(valor) * 3600;
+            } else if (valor.includes("minuto")) {
+              valor = parseFloat(valor) * 60;
+            } else {
+              valor = parseFloat(valor);
+            }
+          } else {
+            // Convertir la distancia a metros
+            if (valor.includes("pie")) {
+              valor = parseFloat(valor) * metrosPorPie;
+            } else if (valor.includes("km")) {
+              valor = parseFloat(valor) * 1000;
+            } else {
+              valor = parseFloat(valor);
+            }
+      
+            // Convertir a sistema métrico si se especificó
+            if (aMetrico) {
+              valor = valor / metrosPorPie;
+            }
+          }
+      
+          return valor;
+        }
+      </script>
+      
+    
+</body>
+</html>

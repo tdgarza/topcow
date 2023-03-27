@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Movimiento Rectilíneo</h1>
+    <form>
+      <label>Velocidad inicial (m/s o ft/s):</label>
+      <input type="number" id="velocidadInicial">
+      <br>
+      <label>Aceleración (m/s² o ft/s²):</label>
+      <input type="number" id="aceleracion">
+      <br>
+      <label>Tiempo (s o s):</label>
+      <input type="number" id="tiempo">
+      <br>
+      <label>Unidades:</label>
+      <select id="unidades">
+        <option value="metrico">Sistema métrico</option>
+        <option value="ingles">Sistema inglés</option>
+      </select>
+      <br>
+      <button type="button" onclick="calcular()">Calcular</button>
+      <button type="button" onclick="graficar()">Graficar</button>
+    </form>
+    <canvas id="grafica"></canvas>
+    <script src="script.js"></script> 
+</body>
+</html>

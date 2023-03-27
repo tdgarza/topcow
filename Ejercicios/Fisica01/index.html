@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisica</title>
+</head>
+<body>
+    <h1>Calculadora de física</h1>
+
+	<!-- Campos de entrada -->
+	<label for="distancia">Distancia (m o ft):</label>
+	<input type="number" id="distancia"><br>
+
+	<label for="tiempo">Tiempo (s o s):</label>
+	<input type="number" id="tiempo"><br>
+
+	<label for="velocidad-inicial">Velocidad inicial (m/s o ft/s):</label>
+	<input type="number" id="velocidad-inicial"><br>
+
+	<label for="velocidad-final">Velocidad final (m/s o ft/s):</label>
+	<input type="number" id="velocidad-final"><br>
+
+	<label for="aceleracion">Aceleración (m/s^2 o ft/s^2):</label>
+	<input type="number" id="aceleracion"><br>
+
+	<label for="radio">Radio (m o ft):</label>
+	<input type="number" id="radio"><br>
+
+	<label for="angulo">Ángulo (grados):</label>
+	<input type="number" id="angulo"><br>
+
+	<label for="altura">Altura (m o ft):</label>
+	<input type="number" id="altura"><br>
+
+	<label for="unidad">Unidad de medida:</label>
+	<select id="unidad">
+		<option value="m">Sistema métrico</option>
+		<option value="ft">Sistema inglés</option>
+	</select><br>
+
+	<!-- Botones de cálculo -->
+	<button onclick="calcularMovimientoRectilineo()">Movimiento rectilíneo</button>
+	<button onclick="calcularMovimientoRectilineoVariado()">Movimiento rectilíneo variado</button>
+	<button onclick="calcularMovimientoCircular()">Movimiento circular</button>
+	<button onclick="calcularVelocidad()">Velocidad</button>
+	<button onclick="calcularRapidez()">Rapidez</button>
+	<button onclick="calcularAceleracion()">Aceleración</button>
+	<button onclick="calcularVelocidadLineal()">Velocidad lineal</button>
+	<button onclick="calcularVelocidadAngular()">Velocidad angular</button>
+	<button onclick="calcularRadian()">Radian</button>
+	<button onclick="calcularCaidaLibre()">Caída libre</button>
+
+	<!-- Gráfico -->
+	<canvas id="grafico"></canvas>
+
+	<script>
+		// Variables globales
+		var distancia, tiempo, velocidadInicial, velocidadFinal, aceleracion, radio, angulo, altura, unidad;
+
+		// Función para convertir unidades del sistema inglés al métrico
+		function convertirUnidades(valor) {
+			if (unidad.value === "ft") {
+				return valor / 3.2808; // 1 pie = 0.3048 metros
+			} else {
+				return valor;
+			}
+
+}
+
+// Función para calcular el movimiento rectilíneo
+function calcularMovimientoRectilineo() {
+    distancia = convertirUnidades(parseFloat(document.getElementById("distancia").value));
+    tiempo = parseFloat(document.getElementById("tiempo").value);
+
+    var velocidad = distancia / tiempo;
+
+    // Graficar datos
+    dibujarGrafico(["Distancia (m)", "Tiempo (s)", "Velocidad (m/s)"], [distancia, tiempo, velocidad], "Movimiento rectilíneo");
+}
+
+// Función para calcular el movimiento rectilíneo variado
+function calcularMovimientoRectilineoVariado() {
+    velocidadInicial = convertirUnidades(parseFloat(document.getElementById("velocidad-inicial").value));
+    velocidadFinal = convertirUnidades(parseFloat(document.getElementById("velocidad-final").value));
+    tiempo = parseFloat(document.getElementById("tiempo").value);
+
+    var aceleracion = (velocidadFinal - velocidadInicial) / tiempo;
+
+    // Graficar datos
+    dibujarGrafico(["Velocidad inicial (m/s)", "Velocidad final (m/s)", "Tiempo (s)", "Aceleración (m/s^2)"], [velocidadInicial, velocidadFinal, tiempo, aceleracion], "Movimiento rectilíneo variado");
+}
+
+// Función para calcular el movimiento circular
+function calcularMovimientoCircular() {
+    radio = convertirUnidades(parseFloat(document.getElementById("radio").value));
+    angulo = parseFloat(document.getElementById("angulo").value);
+
+    var arco = (angulo * Math.PI) / 180;
+    var longitud = radio * arco;
+
+    // Graficar datos
+    dibujarGrafico(["Radio (m)", "Ángulo (grados)", "Arco (radianes)", "Longitud (m)"], [radio, angulo, arco, longitud], "Movimiento circular");
+}
+
+// Función para calcular la velocidad
+function calcularVelocidad() {
+    distancia = convertirUnidades(parseFloat(document.getElementById("distancia").value));
+    tiempo = parseFloat(document.getElementById("tiempo").value);
+
+    var velocidad = distancia / tiempo;
+
+    // Graficar datos
+    dibujarGrafico(["Distancia (m)", "Tiempo (s)", "Velocidad (m/s)"], [distancia, tiempo, velocidad], "Velocidad");
+}
+
+// Función para calcular la rapidez
+function calcularRapidez() {
+    distancia = convertirUnidades(parseFloat(document.getElementById("distancia").value));
+    tiempo = parseFloat(document.getElementById("tiempo").value);
+
+    var rapidez = distancia / tiempo;
+
+    // Graficar datos
+    dibujarGrafico(["Distancia (m)", "Tiempo (s)", "Rapidez (m/s)"], [distancia, tiempo, rapidez], "Rapidez");
+}
+
+// Función para calcular la aceleración
+function calcularAceleracion() {
+    velocidadInicial = convertirUnidades(parseFloat(document.getElementById("velocidad-inicial").value));
+    velocidadFinal = convertirUnidades(parseFloat(document.getElementById("velocidad-final").value));
+    tiempo = parseFloat(document.getElementById("tiempo").value);
+
+    var aceleracion = (velocidadFinal - velocidadInicial) / tiempo;
+
+
+
+    // Graficar datos
+    dibujarGrafico(["Velocidad inicial (m/s)", "Velocidad final (m/s)", "Tiempo (s)", "Aceleración (m/s^2)"], [velocidadInicial, velocidadFinal, tiempo, aceleracion], "Aceleración");
+    }
+    // Función para calcular la velocidad lineal
+	function calcularVelocidadLineal() {
+		radio = convertirUnidades(parseFloat(document.getElementById("radio").value));
+		velocidadAngular = parseFloat(document.getElementById("velocidad-angular").value);
+
+		var velocidadLineal = radio * velocidadAngular;
+
+		// Graficar datos
+		dibujarGrafico(["Radio (m)", "Velocidad angular (rad/s)", "Velocidad lineal (m/s)"], [radio, velocidadAngular, velocidadLineal], "Velocidad lineal");
+	}
+
+	// Función para calcular la velocidad angular
+	function calcularVelocidadAngular() {
+		var arco = convertirUnidades(parseFloat(document.getElementById("arco").value));
+		tiempo = parseFloat(document.getElementById("tiempo").value);
+
+		var velocidadAngular = arco / tiempo;
+
+		// Graficar datos
+		dibujarGrafico(["Arco (m)", "Tiempo (s)", "Velocidad angular (rad/s)"], [arco, tiempo, velocidadAngular], "Velocidad angular");
+	}
+
+	// Función para convertir unidades
+	function convertirUnidades(valor) {
+		if (document.getElementById("unidades").value == "pies") {
+			return valor / 3.281;
+		} else {
+			return valor;
+		}
+	}
+
+	// Función para dibujar gráfico
+	function dibujarGrafico(etiquetas, datos, titulo) {
+		var ctx = document.getElementById("grafico").getContext("2d");
+
+		var grafico = new Chart(ctx, {
+			type: "bar",
+			data: {
+				labels: etiquetas,
+				datasets: [
+					{
+						label: titulo,
+						data: datos,
+						backgroundColor: "rgba(54, 162, 235, 0.2)",
+						borderColor: "rgba(54, 162, 235, 1)",
+						borderWidth: 1,
+					},
+				],
+			},
+			options: {
+				responsive: true,
+				maintainAspectRatio: false,
+				scales: {
+					yAxes: [
+						{
+							ticks: {
+								beginAtZero: true,
+							},
+						},
+					],
+				},
+			},
+		});
+	}
+</script>
+    
+</body>
+</html>

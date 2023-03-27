@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movimiento rectilíneo uniforme</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="mr.js"></script>
+  </head>
+  <body>
+    <h1>Movimiento rectilíneo uniforme</h1>
+    <label for="velocidad">Velocidad inicial:</label>
+    <input type="number" id="velocidad" name="velocidad" step="0.01">
+    <select id="unidades-velocidad">
+      <option value="m/s">m/s</option>
+      <option value="pies/s">pies/s</option>
+    </select><br><br>
+    <label for="aceleracion">Aceleración:</label>
+    <input type="number" id="aceleracion" name="aceleracion" step="0.01">
+    <select id="unidades-aceleracion">
+      <option value="m/s^2">m/s^2</option>
+      <option value="pies/s^2">pies/s^2</option>
+    </select><br><br>
+    <label for="tiempo">Tiempo:</label>
+    <input type="number" id="tiempo" name="tiempo" step="0.01">
+    <select id="unidades-tiempo">
+      <option value="segundos">segundos</option>
+      <option value="segundos_pies">segundos (pies)</option>
+    </select><br><br>
+    <button onclick="calcular()">Calcular</button>
+    <button onclick="graficar()">Graficar</button>
+    <br><br>
+    <div id="resultado"></div>
+    <canvas id="grafica"></canvas>
+  </body>
+</html>
