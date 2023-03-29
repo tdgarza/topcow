@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gauss-Jordan</title>
+</head>
+<body>
+    
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="UTF-8">
+        <title>Resolución de sistema de ecuaciones lineales de 3x3</title>
+      </head>
+      <body>
+        <h1>Resolución de sistema de ecuaciones lineales de 3x3</h1>
+        <form onsubmit="resolver(); return false;">
+          <fieldset>
+            <legend>Ingrese los valores de la matriz A</legend>
+            <label>A<sub>1,1</sub>: <input type="number" step="any" name="a11"></label><br>
+            <label>A<sub>1,2</sub>: <input type="number" step="any" name="a12"></label><br>
+            <label>A<sub>1,3</sub>: <input type="number" step="any" name="a13"></label><br>
+            <label>A<sub>2,1</sub>: <input type="number" step="any" name="a21"></label><br>
+            <label>A<sub>2,2</sub>: <input type="number" step="any" name="a22"></label><br>
+            <label>A<sub>2,3</sub>: <input type="number" step="any" name="a23"></label><br>
+            <label>A<sub>3,1</sub>: <input type="number" step="any" name="a31"></label><br>
+            <label>A<sub>3,2</sub>: <input type="number" step="any" name="a32"></label><br>
+            <label>A<sub>3,3</sub>: <input type="number" step="any" name="a33"></label><br>
+          </fieldset>
+          <fieldset>
+            <legend>Ingrese los valores de la matriz b</legend>
+            <label>b<sub>1</sub>: <input type="number" step="any" name="b1"></label><br>
+            <label>b<sub>2</sub>: <input type="number" step="any" name="b2"></label><br>
+            <label>b<sub>3</sub>: <input type="number" step="any" name="b3"></label><br>
+          </fieldset>
+          <input type="submit" value="Resolver">
+        </form>
+        <div id="solucion"></div>
+        <script>
+          function resolver() {
+            // Obtenemos los valores de las matrices A y b del formulario
+            const A = [
+              [parseFloat(document.getElementsByName('a11')[0].value), parseFloat(document.getElementsByName('a12')[0].value), parseFloat(document.getElementsByName('a13')[0].value)],
+              [parseFloat(document.getElementsByName('a21')[0].value), parseFloat(document.getElementsByName('a22')[0].value), parseFloat(document.getElementsByName('a23')[0].value)],
+              [parseFloat(document.getElementsByName('a31')[0].value), parseFloat(document.getElementsByName('a32')[0].value), parseFloat(document.getElementsByName('a33')[0].value)]
+            ];
+            const b = [
+              parseFloat(document.getElementsByName('b1')[0].value),
+              parseFloat(document.getElementsByName('b2')[0].value),
+              parseFloat(document.getElementsByName('b3')[0].value)
+            ];
+
+    // Resolvemos el sistema de ecuaciones utilizando el método de Gauss-Jordan
+    const solucion = gaussJordan(A, b);
+
+    // Mostramos la solución en la página
+    const solucionDiv = document.getElementById("solucion");
+    solucionDiv.innerHTML = `
+      <p>La solución del sistema de ecuaciones es:</p>
+      <ul>
+        <li>x<sub>1</sub> = ${solucion[0].toFixed(4)}</li>
+        <li>x<sub>2</sub> = ${solucion[1].toFixed(4)}</li>
+        <li>x<sub>3</sub> = ${solucion[2].toFixed(4)}</li>
+      </ul>
+    `;
+  }
+  function gaussJordan(A, b) {
+    // Combinamos las matrices A y b en una matriz extendida
+    const n = A.length;
+    const Ab = new Array(n);
+    for (let i = 0; i < n; i++) {
+      Ab[i] = A[i].concat(b[i]);
+    }
+  
+    // Aplicamos la eliminación gaussiana
+    for (let i = 0; i < n; i++) {
+      // Encontramos la fila con el elemento máximo en la columna i
+      let maxRow = i;
+      for (let j = i + 1; j < n; j++) {
+        if (Math.abs(Ab[j][i]) > Math.abs(Ab[maxRow][i])) {
+          maxRow = j;
+        }
+      }
+  
+      // Intercambiamos filas para poner el elemento máximo en la fila i
+      [Ab[i], Ab[maxRow]] = [Ab[maxRow], Ab[i]];
+  
+      // Hacemos cero todos los elementos debajo del elemento diagonal en la columna i
+      for (let j = i + 1; j < n; j++) {
+        const factor = Ab[j][i] / Ab[i][i];
+        for (let k = i + 1; k <= n; k++) {
+          Ab[j][k] -= factor * Ab[i][k];
+        }
+        Ab[j][i] = 0;
+      }
+    }
+  
+    // Resolvemos la matriz triangular superior
+    const x = new Array(n);
+    for (let i = n - 1; i >= 0; i--) {
+      let sum = 0;
+      for (let j = i + 1; j < n; j++) {
+        sum += Ab[i][j] * x[j];
+      }
+      x[i] = (Ab[i][n] - sum) / Ab[i][i];
+    }
+  
+    return x;
+  }
+  
+</script>
+</body>
+</html>
