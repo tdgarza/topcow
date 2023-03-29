@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+	<title>Calculadora de moviento</title>
+</head>
+<body>
+<nav class="navbar navbar-light" style="background-color: #115f97;">
+  <!-- Navbar content -->
+</nav>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Calculadora de Fisica</h1>
+    <p class="lead">Los elementos que se consideran necesarios para facilitar el aprendizaje de conceptos y la aplicación de modelos matemáticos en el campo de la Física, son algunos conceptos de las matemáticas como: </p>
+    <p><li>sistemas de unidades, <li>magnitudes escalares, <li>magnitudes vectoriales, <li>notación científica, <li>análisis dimensional.
+  </div>
+</div>
+  <form id="formulario">
+  <label for="distancia">Distancia:</label>
+  <input type="text" id="distancia" name="distancia">
+  <select id="distanciaUnidad">
+    <option value="metros">metros</option>
+    <option value="pies">pies</option>
+  </select>
+  <br>
+    <label for="tiempo">Tiempo:</label>
+  <input type="text" id="tiempo" name="tiempo">
+  <select id="tiempoUnidad">
+    <option value="segundos">segundos</option>
+    <option value="horas">horas</option>
+  </select>
+  <br>
+<label for="velocidadUnidad">Unidades de Velocidad:</label>
+<select id="velocidadUnidad">
+  <option value="metros_por_segundo">m/s</option>
+  <option value="pies_por_segundo">ft/s</option>
+  <option value="kilometros_por_hora">km/hr</option>
+  <option value="millas_por_hora">mph</option>
+</select>
+<br>
+<br>
+
+<button type="button" value="Calcular" onclick="Calcular()" class="btn btn-success">Calcular</button>
+
+
+</form>
+<br>
+<p style="color: #3d3ded; background-color:#ee8ce6">Velocidad: <span id="velocidad"></span></p>
+
+<script>
+ function Calcular(){
+    const distancia = parseFloat(document.getElementById('distancia').value);
+      
+      console.log("la distancia es: " +distancia);
+      document.getElementById('velocidad').textContent=distancia.toFixed(4) + ' ' + distancia;
+          
+  }
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
