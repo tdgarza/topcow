@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Metodo de Gauss</h1>
+    <script>
+        a11=2;
+        a12=3;
+        a13=1;
+        a14=1;
+
+        a21=6;
+        a22=-2;
+        a23=-1;
+        a24=-14;
+
+        a31=3;
+        a32=1;
+        a33=-1;
+        a34=1;
+        let factor1;
+        let factor2;
+        let factor3;
+        if(a11||a21<0){
+            factor1=-a11/a21;
+        }else if(a11||a21>0){
+            factor1=a11/a21;
+        }
+        if(a22||a12<0){
+            factor2=-a22/a12;
+        }else if(a22||a12>0){
+            factor2=a22/a12;
+        }
+        if(a33||a13<0){
+            factor3=-a33/a13;
+        }else if(a33||a13>0){
+            factor3=a33/a13;
+        }
+        console.log("Valor del factor 1: " +factor1);
+        console.log("Valor del factor 2: " +factor2);
+        console.log("Valor del factor 3: " +factor3);
+        
+        a21=a21*factor1;
+        a21=a11+a21;
+        a22=a22*factor1;
+        a22=a12+a22;
+        a23=a23*factor1;
+        a23=a13+a23;
+        a24=a24*factor1;
+        a24=a14+a24;
+        console.log("Valor de a21: " +a21);
+        console.log("Valor de a21: " +a22);
+        console.log("Valor de a21: " +a23);
+        console.log("Valor de a21: " +a24);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <title>Gauss</title>
+</head>
+<body>
+    <div style="margin: 5px;">
+        <nav class="navbar navbar-light" style="background-color: #9bc6e5;">
+
+        <div class="container">
+        <a class="navbar-brand" href="index.html">Inicio</a>
+      
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+          <ul class="nav navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Unidad 2
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="bisecciones.html">Metodo de la Biseccion</a><br>
+                  <a class="dropdown-item" href="reglafalsa.html">Regla Falsa</a><br>
+                  <a class="dropdown-item" href="newton.html">Metodo de Newton</a><br>
+                  <a class="dropdown-item" href="secante.html">Metodo de la Secante</a><br>
+
+                </div>
+              </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Unidad 3
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a><br>
+                <a class="dropdown-item" href="#">Another action</a><br>
+                <a class="dropdown-item" href="#">Something else here</a><br>
+              </div>
+            </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+    </div>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4"><titulo>Metodo de Cramer</titulo></h1>
+        <p class="lead"> <h3>Tema 7</h3></p>
+        <h1>Determinate de una matriz de 3x3</h1>
+        <label> Introduce los elementos de la matriz</label><br>
+        <input type="text" id="a11" size="5">
+        <input type="text" id="a12" size="5">
+        <input type="text" id="a13" size="5">
+        <input type="text" id="a14" size="5">
+        <br>
+        <input type="text" id="a21" size="5">
+        <input type="text" id="a22" size="5">
+        <input type="text" id="a23" size="5">
+        <input type="text" id="a24" size="5">
+        <br>
+        <input type="text" id="a31" size="5">
+        <input type="text" id="a32" size="5">
+        <input type="text" id="a33" size="5">
+        <input type="text" id="a34" size="5">
+        <br>
+      <br>
+      <button type="button" onclick="determinante()">Presioname</button> 
+      <p id="sumando">Resultado: </p>
+      <script>
+          function determinante(){
+              var a11=parseInt(document.getElementById("a11").value);
+              var a12=parseInt(document.getElementById("a12").value);
+              var a13=parseInt(document.getElementById("a13").value);
+              var a14=parseInt(document.getElementById("a14").value);
+              var a21=parseInt(document.getElementById("a21").value);
+              var a22=parseInt(document.getElementById("a22").value);
+              var a23=parseInt(document.getElementById("a23").value);
+              var a24=parseInt(document.getElementById("a24").value);
+              var a31=parseInt(document.getElementById("a31").value);
+              var a32=parseInt(document.getElementById("a32").value);
+              var a33=parseInt(document.getElementById("a33").value);
+              var a34=parseInt(document.getElementById("a34").value);
+          
+   
+      
+    }
+</script>
+       </div>
+      </div>
+    
+</body>
+</html>

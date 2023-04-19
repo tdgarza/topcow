@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comics/BasedeDatos</title>
+</head>
+<body>
+    <form>
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo"><br><br>
+        <label for="numero">Número:</label>
+        <input type="number" id="numero" name="numero"><br><br>
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" name="precio"><br><br>
+        <label for="compania">Compañía:</label>
+        <input type="text" id="compania" name="compania"><br><br>
+        <label for="ano">Año:</label>
+        <input type="number" id="ano" name="ano"><br><br>
+        <input type="button" value="Guardar" onclick="guardarComic()">
+      </form>
+
+      <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+
+<script>
+  // Configurar la conexión con Firebase
+  var firebaseConfig = {
+    apiKey: "442875528659",
+    authDomain: "AUTH_DOMAIN",
+    projectId: "PROJECT_ID"
+  };
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore();
+  
+  // Función para guardar el cómic en la base de datos
+  function guardarComic() {
+    var titulo = document.getElementById("titulo").value;
+    var numero = parseInt(document.getElementById("numero").value);
+    var precio = parseInt(document.getElementById("precio").value);
+    var compania = document.getElementById("compania").value;
+    var ano = parseInt(document.getElementById("ano").value);
+    
+    // Guardar el cómic en la base de datos
+    db.collection("comics").add({
+      titulo: titulo,
+      numero: numero,
+      precio: precio,
+      compania: compania,
+      ano: ano
+    })
+    .then(function(docRef) {
+      console.log("Cómic guardado con ID: ", docRef.id);
+      alert("Cómic guardado con éxito");
+    })
+    .catch(function(error) {
+      console.error("Error al guardar el cómic: ", error);
+      alert("Error al guardar el cómic");
+    });
+  }
+</script>
+
+      
+</body>
+</html>

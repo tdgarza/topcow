@@ -48,6 +48,7 @@
             <button type="button" value="Calcular" onclick="Calcular()" class="btn btn-success">Calcular</button>
           </form>
           <br>
+          <p id="resultado"></p>
           <p style="color: #3d3ded; background-color: #ee8ce6;">Velocidad: <span id="velocidad"></span></p>
           <p style="color: #ff00ea; background-color: #8cb1ee">Aceleracion: <span id="aceleracion"></span></p>
           <p style="color: #3d3ded; background-color: #ee8ce6">Rapidez: <span id="rapidez"></span></p>
@@ -55,11 +56,71 @@
       </div>
       <script>
         function Calcular(){
-            const distancia = parseFloat(document.getElementById('distancia').value);
+      //obtener los valores del formulario
+      const distancia = parseFloat(document.getElementById('distancia').value);
+      const tiempo = parseFloat(document.getElementById('tiempo').value);
+      const distanciaUnidad = document.getElementById('distanciaUnidad').value;
+      const tiempoUnidad = document.getElementById('tiempoUnidad').value;
+      const velocidadUnidad = document.getElementById('velocidadUnidad').value;
+          console.log("La distancia: " +distancia);
+          console.log("La tiempo: " +tiempo);
+          console.log("La distancia Unidad: " +distanciaUnidad);
+          console.log("La tiempo Unidad: " +tiempoUnidad);
+          console.log("La velocidad: " +velocidadUnidad);
+      //Convertir unidad a Sistema metrico(SI)
+      let distanciaSI = 0;
+      let tiempoSI = 0;
 
+      if(distanciaUnidad === 'metros'){
+        distanciaSI = distancia;
+      }
+      else if (distanciaUnidad === 'pies'){
+        distanciaSI = distancia /3.281;
+      }
+   if(tiempoUnidad === 'segundos'){
+        tiempoSI =tiempo;
+        
+          console.log("La tiempoSI Else: " +tiempoSI);
+      }
+      else if (tiempoUnidad === 'horas'){
+        tiempoSI = tiempo * 3600;
+      }
+      console.log("La distanciaSI: " +distanciaSI);
+          console.log("La tiempoSI: " +tiempoSI);
+      //Calcular la velocidad, aceleracion y (rapidez)
+      let velocidad = 0;
+      let aceleracion = 0;
+      let rapidez = 0;
+      if(velocidadUnidad === 'metros_por_segundo'){
+        velocidad = distanciaSI / tiempoSI;
+        rapidez = velocidad; //esta no es la formula
+        aceleracion = velocidad / tiempoSI;
+      }
+      else if(velocidadUnidad === 'pies_por_segundo'){
+        velocidad = (distanciaSI * 3.281) / tiempoSI;
+        rapidez = velocidad; //esta no es la formula
+        aceleracion = velocidad / tiempoSI;
+      }
+      else if(velocidadUnidad === 'kilometros_por_hora'){
+        velocidad = (distanciaSI / 1000) / (tiempoSI / 3600);
+        rapidez = velocidad; //esta no es la formula
+        aceleracion = velocidad / tiempoSI;
+      }
+      else if(velocidadUnidad === 'millas_por_hora'){
+        velocidad = (distanciaSI / 1609) / (tiempoSI / 3600);
+        rapidez = velocidad; //esta no es la formula
+        aceleracion = velocidad / tiempoSI;
+      }
 
-            console.log("la distancia es: " +distancia);
-            document.getElementById('velocidad').textContent=distancia.toFixed(3) + ' ' + distancia;
+      
+      //mostrar los resultados
+      let resultado = '';
+
+      document.getElementById('velocidad').textContent = velocidad.toFixed(2) + ' ' + velocidadUnidad;
+      document.getElementById('aceleracion').textContent = aceleracion.toFixed(2) + ' ' + velocidadUnidad;
+      document.getElementById('rapidez').textContent = rapidez.toFixed(2) + ' ' + velocidadUnidad;
+      document.getElementById('resultado').innerHTML=resultado;
+           
         }
         
       </script>
