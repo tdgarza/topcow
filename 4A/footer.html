@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        footer {
+  background-color: #333;
+  color: #fff;
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.about {
+  text-align: center;
+}
+
+.about h2 {
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-links a {
+  display: inline-block;
+  color: #fff;
+  font-size: 24px;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.contact-links a:hover {
+  transform: translateY(-5px);
+}
+    </style>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+              <div class="footer-section about">
+                <h2>Contáctame</h2>
+                <p>Si estás interesado en contactarme, puedes hacerlo a través de cualquiera de las siguientes redes sociales:</p>
+                <div class="contact-links">
+                  <a href="https://www.facebook.com/tu_perfil_de_facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+                  <a href="https://www.instagram.com/tu_perfil_de_instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                  <a href="https://twitter.com/tu_perfil_de_twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                  <p> <i class="fa fa-facebook" aria-hidden="true"></i> </p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </footer>
+    <script>
+        // Este es un ejemplo de JavaScript para hacer que los enlaces de las redes sociales se abran en una nueva pestaña
+const socialLinks = document.querySelectorAll('.contact-links a');
+
+socialLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    window.open(link.href, '_blank');
+  });
+});
+
+    </script>
+</body>
+</html>
