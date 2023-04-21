@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="footer.css">
+	<title>Pagina 1</title>
+</head>
+<body>
+
+	<div style="margin:24px;">
+		<nav class="navbar navbar-light" style="background-color: #3D348B;">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">Inicio</a>
+				<ul class="nav navbar-nav">
+					<li >
+						<a href="menu.html">Menu</a>
+					</li>
+					<li>
+						<a href="formulario.html">Formulario</a>
+					</li>
+					<li >
+						<a href="resultado.html">Resultado</a>
+					</li>
+					<li class="active">
+						<a href="contacto.html">Contacto</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+
+    </head>
+  
+    <body>
+      <div class="container">
+        <h1>Mi pagina de peliculas</h1>
+        <form id="form">
+          <input type="text" id="search" placeholder="Buscar pelicula" />
+          <input type="submit" value="Search" />
+        </form>
+        <section id="main" class="movies"></section>
+      </div>
+  
+    <script>
+        const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=1'
+        const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
+        const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query="'
+        const main = document.getElementById('main')
+        const form = document.getElementById('form')
+        const search = document.getElementById('search')
+
+getMovies(API_URL)
+
+async function getMovies(url) {
+    const res = await fetch(url)
+    const data = await res.json()
+
+    showMovies(data.results)
+}
+
+function showMovies(movies) {
+    main.innerHTML = ''
+
+    movies.forEach((movie) => {
+        const { title, poster_path, vote_average, overview, release_date } = movie
+
+        const movieEl = document.createElement('div')
+        movieEl.classList.add('movie')
+
+        movieEl.innerHTML = `
+            <img src="${IMG_PATH + poster_path}" alt="${title}">
+            <div class="movie-info">
+          <h3>${title}</h3>
+          <span class="${getClassByRate(vote_average)}">${vote_average}</span>
+            </div>
+            <div class="overview">
+          <h3>Overview</h3>
+          ${overview}
+          <h3>Release Date</h3>
+          ${release_date}
+        </div>
+        `
+        main.appendChild(movieEl)
+    })
+}
+
+function getClassByRate(vote) {
+    if(vote >= 8) {
+        return 'green'
+    } else if(vote >= 5) {
+        return 'orange'
+    } else {
+        return 'red'
+    }
+}
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    const searchTerm = search.value
+
+    if(searchTerm && searchTerm !== '') {
+        getMovies(SEARCH_API + searchTerm)
+
+        search.value = ''
+    } else {
+        window.location.reload()
+    }
+})
+    </script>
+
+
+<footer>
+	<div class="container">
+		<div class="footer-content">
+		  <div class="footer-section about">
+			<h2>Contáctame</h2>
+			<p>Si estás interesado en contactarme, puedes hacerlo a través de cualquiera de las siguientes redes sociales:</p>
+			<div class="contact-links">
+			  <a href="https://www.facebook.com/tu_perfil_de_facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+			  <a href="https://www.instagram.com/tu_perfil_de_instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+			  <a href="https://twitter.com/tu_perfil_de_twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+			  <p> <i class="fa fa-facebook" aria-hidden="true"></i> </p>
+			</div>
+		  </div>
+		</div>
+	  </div>
+</footer>
+<script>
+	// Este es un ejemplo de JavaScript para hacer que los enlaces de las redes sociales se abran en una nueva pestaña
+const socialLinks = document.querySelectorAll('.contact-links a');
+
+socialLinks.forEach(link => {
+link.addEventListener('click', e => {
+e.preventDefault();
+window.open(link.href, '_blank');
+});
+});
+
+</script>
+</body>
+</html>

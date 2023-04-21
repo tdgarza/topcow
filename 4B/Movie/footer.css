@@ -1,0 +1,53 @@
+footer {
+background-color: #3D348B;
+color: #fff;
+padding: 60px 0;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+.footer-content {
+display: flex;
+flex-wrap: wrap;
+}
+
+.footer-section {
+width: 100%;
+padding: 20px;
+box-sizing: border-box;
+}
+
+.about {
+text-align: center;
+}
+
+.about h2 {
+margin-bottom: 20px;
+}
+
+.about p {
+font-size: 18px;
+line-height: 1.5;
+margin-bottom: 20px;
+}
+
+.contact-links {
+display: flex;
+justify-content: center;
+}
+
+.contact-links a {
+display: inline-block;
+color: #fff;
+font-size: 24px;
+margin: 0 10px;
+transition: all 0.3s ease;
+}
+
+.contact-links a:hover {
+transform: translateY(-5px);
+}
