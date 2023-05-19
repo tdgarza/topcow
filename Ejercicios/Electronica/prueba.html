@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tomas Garza</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+        header{
+            background-color: pink;
+            padding: 25px;
+        }
+        nav{
+            background-color: orange;
+            height: 50px;
+        }
+        article{
+            background-color: yellow;
+            color: black;
+        }
+        section{
+            background-color: green;
+
+        }
+        aside{
+            background-color: turquoise;
+            color: black;
+            width: 80%;
+            float: left;
+        }
+        footer{
+            background-color: purple;
+        }
+        .copyright{
+            text-align: center;
+            color: lightgrey;
+            font-weight: 400;
+        }
+    </style>
+    <header>Esto va a aparecer arriba</header>
+    <nav>Aqui van los hipervinculos</nav>
+    <article> Aqui va el articulo 
+        <section>
+            Aqui voy a poner la informacion
+        </section>
+    </article>
+    <aside>
+        aqui van imagenes
+    </aside>
+    <footer>Aqui va la informacion mia
+        <div class="copyright">
+            <p>&copy; <span id="year"></span> Derechos reservados.</p>
+        </div>
+
+        <script>
+            let year = document.getElementById('year');
+            let dynaicYear = new Date().getFullYear();
+            year.innerHTML = dynaicYear;
+        </script>
+    </footer>
+</body>
+</html>
