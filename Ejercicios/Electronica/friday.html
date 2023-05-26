@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="thecure.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
+
     <title>Tomas Garza</title>
 </head>
 <body>
@@ -26,7 +29,27 @@
         aqui voy a meter imagenes
     </aside>
     <footer>
-        aqui voy a meter mi info
+        <div class="container">
+            <div class="footer-content">
+              <div class="footer-section about">
+                <h2>Contáctame</h2>
+                <p>Si estás interesado en contactarme, puedes hacerlo a través de cualquiera de las siguientes redes sociales:</p>
+                <div class="contact-links">
+                  <a href="https://www.facebook.com/tu_perfil_de_facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+                  <a href="https://www.instagram.com/tu_perfil_de_instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                  <a href="https://twitter.com/tu_perfil_de_twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                  <p> <i class="fa fa-facebook" aria-hidden="true"></i> </p>
+                </div>
+              </div>
+            </div>
+          </div>
+       <div class="copyright">
+        <p>&copy; <span id="year"></span> Derechos reservados.</p>
     </footer>
+    <script>
+        let year = document.getElementById('year');
+        let dynamicYear =new Date().getFullYear();
+        year.innerHTML=dynamicYear;
+    </script>
 </body>
 </html>
