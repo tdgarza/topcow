@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //function binary_search(arr, item){
+          let arr=[0,1,2,3,4,5,6,7,8,9];
+            let low =4;
+            let high=9;
+           // let high=arr[i]-1;
+           
+            console.log(arr[high]);
+            console.log(arr[low]);
+          while(low<=high){
+                let mid=Math.floor((low+high)/2);
+                console.log("Valor del primer mid: "+mid);
+                console.log("Valor del arreglo: "+ arr[mid]);
+                let guess=arr[mid];
+                console.log("valor del Guess: "+guess);
+            
+            if (guess == item)
+           arr[mid];
+           console.log("primer if: " +arr[mid]);
+            if (guess >item){
+            high=mid-1;
+            console.log("Valor del segundo IF: "+high);
+        }
+            else{
+            low=mid+1;
+            console.log("Valor del Else: "+low);
+            }
+           }
+         //  return arr[mid];
+      // }
+      // let arr=[0,1,2,3,4,5,6,7,8,9];
+      //let item=6;
+      
+    </script>
+
+</body>
+</html>

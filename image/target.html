@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="target"></div>
+    <script>
+        let data = {
+            "response": {
+                "docs": [{
+                    "id":"1",
+    "nombre":"Superman",
+    "edad":"30",
+    "identidadsecreta":"Clark Kent",
+    "poderes":"Vision Calor, Rayos X, Superfuerza",
+    "image":"1.jpg"
+                }, {
+                    "id":"2",
+    "nombre":"Batman",
+    "edad":"30",
+    "identidadsecreta":"Bruce Wayne",
+    "poderes":["Vision Calor","Rayos X","Superfuerza"],
+    "image":"2.jpg"
+                }, {
+                    "id":"3",
+    "nombre":"Wonder Woman",
+    "edad":"30",
+    "identidadsecreta":"Diana Prince",
+    "poderes":"Super fuerza",
+    "image":"3.jpg"
+                }]
+            }
+        };
+
+let target = document.querySelector('#target');
+
+data = data.response.docs;
+
+data.forEach((value, key) => {  
+    target.innerHTML += `<div class="image-list">
+        <img src ="${value.image}" class="image-styles" />
+        <p class="image-title">${value.nombre}</p>
+        <p class="image-title">${value.poderes}</p>
+        </div>`;
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <SCRIPT LANGUAGE="JavaScript">
+        function readText (form) {
+            TestVar =form.inputbox.value;
+            alert ("You typed: " + TestVar);
+        }
+        function writeText (form) {
+            form.inputbox.value = "Have a nice day!"
+        }
+        </SCRIPT>
+
+<FORM NAME="myform" ACTION="objetos.html" METHOD="GET">
+Enter something in the box: <BR>
+<INPUT TYPE="text" NAME="inputbox" VALUE=""><P>
+<INPUT TYPE="button" NAME="button1" Value="Read" onClick="readText(this.form)">
+<INPUT TYPE="button" NAME="button2" Value="Write" onClick="writeText(this.form)">
+</FORM>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "image",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01-binary.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tdgarza/image.git"
+  },
+  "author": "tdgarza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tdgarza/image/issues"
+  },
+  "homepage": "https://github.com/tdgarza/image#readme"
+}

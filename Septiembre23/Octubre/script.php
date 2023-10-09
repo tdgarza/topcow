@@ -6,7 +6,7 @@
     $dbname = "pokemon";
 
     // Crear conexión
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
 
     // Verificar la conexión
     if ($conn->connect_error) {
@@ -22,7 +22,7 @@
         echo "<table>";
         echo "<tr><th>ID</th><th>Nombre</th><th>Apellido</th><th>Correo Electrónico</th><th>Teléfono</th></tr>";
         while ($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row["id"] . "</td><td>" . $row["Nombre"] . "</td><td>" . $row["apellido"] . "</td><td>" . $row["telefono"] . "</td><td>" . $row["direccion"] . "</td></tr>";
+            echo "<tr><td>" . $row["id"] . "</td><td>" . $row["Nombre"] . "</td><td>" . $row["Poder"] . "</td><td>" . $row["Evolucion"] . "</td><td>" . $row["Tipo"] . "</td></tr>";
         }
         echo "</table>";
     } else {

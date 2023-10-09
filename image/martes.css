@@ -1,0 +1,64 @@
+body{
+    background-color: #236863;
+}
+h1{
+    color:#933256 ;
+    text-shadow: 0 0 5px #f7f7f7;
+}
+#target {
+    max-width:100%;
+    width:600px;
+    margin:0 auto;
+    text-align: left;
+  }
+  .image-list {
+      position:relative;
+      float: left;
+      display:inline;
+  }
+  .image-styles {
+      margin:15px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      width: 300px;
+      height: 300px;
+  }
+  .image-nombre {
+      background:rgb(255, 0, 0);
+      width:80%;
+      position:absolute;
+      bottom:65px;
+      left:15px;
+      color:#f7f7f7;
+      text-align:center;
+      padding:2px;
+      opacity:0.6;
+      filter:alpha(opacity=60);
+      /* For IE8 and earlier */
+  }
+  .image-poderes {
+    background:rgb(255, 123, 0);
+    width:80%;
+    position:absolute;
+    bottom:15px;
+    left:15px;
+    color:#f7f7f7;
+    text-align:center;
+    padding:2px;
+    opacity:0.6;
+    filter:alpha(opacity=60);
+    /* For IE8 and earlier */
+}
+.image-real {
+    background:rgb(251, 255, 0);
+    width:80%;
+    position:absolute;
+    bottom:40px;
+    left:15px;
+    color:#f7f7f7;
+    text-align:center;
+    padding:2px;
+    opacity:0.6;
+    filter:alpha(opacity=60);
+    /* For IE8 and earlier */
+}

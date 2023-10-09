@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="target.css">
+    <title>IMAGENES</title>
+</head>
+<body>
+    <div id="target"></div>
+    <script>
+        let data={
+            "response":{
+                "docs":[{
+                "name":"Green Lantern",
+                "edad":"33",
+                "identidadsecreta":"John Steward",
+                "poderes":"Anillo de poder",
+                "image":"linterna.jpg"},
+                {
+                "name":"Superman",
+                "edad":"33",
+                "identidadsecreta":"Clark Kent",
+                "poderes":"Todos",
+                "image":"1.jpg"}]
+            },
+        };
+            let target = document.querySelector('#target');
+            data=data.response.docs;
+            data.forEach((value, key)=>{
+                target.innerHTML+=`<div class="image-list">
+                <img src="${value.image}" class="image-style" />
+               <p class="image-title">${value.name}</p>
+               <p class="image-edad">${value.edad}</p>
+                </div>`;
+            });
+    </script>
+</body>
+</html>

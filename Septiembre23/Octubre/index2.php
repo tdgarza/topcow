@@ -1,4 +1,12 @@
-<?php
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Página Web</title>
+</head>
+<body>
+    <h1>Agenda de Personas</h1>
+    
+    <?php
     // Configuración de la conexión a la base de datos
     $servername = "localhost";
     $username = "root";
@@ -22,7 +30,7 @@
         echo "<table>";
         echo "<tr><th>ID</th><th>Nombre</th><th>Apellido</th><th>Correo Electrónico</th><th>Teléfono</th></tr>";
         while ($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row["id"] . "</td><td>" . $row["Nombre"] . "</td><td>" . $row["apellido"] . "</td><td>" . $row["telefono"] . "</td><td>" . $row["direccion"] . "</td></tr>";
+            echo "<tr><td>" . $row["id"] . "</td><td>" . $row["Nombre"] . "</td><td>" . $row["Poder"] . "</td><td>" . $row["email"] . "</td><td>" . $row["telefono"] . "</td></tr>";
         }
         echo "</table>";
     } else {
@@ -32,3 +40,5 @@
     // Cerrar la conexión a la base de datos
     $conn->close();
     ?>
+</body>
+</html>

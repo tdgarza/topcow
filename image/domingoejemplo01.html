@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- (A) HTML FORM -->
+<form onsubmit="return doForm()">
+    <div>valor</div>
+    <input type="text" id="numero1"/>
+   
+    <div>valor</div>
+    <input type="text" id="numero2"/>
+   
+    <input type="submit" value="Go!"/>
+  </form>
+   
+  <!-- (B) JS PROCESSING -->
+  <script>
+  function doForm () {
+    // (B1) FORM DATA OBJECT
+    var data = new FormData();
+  
+    // (B2) APPEND FIELDS
+    data.append("valor 1:", document.getElementById("numero1").value);
+    data.append("valor 2:", document.getElementById("numero2").value);
+  
+    // (B3) WHATEVER YOU WANT TO DO NEXT
+    for (let [k, v] of data.entries()) { console.log(k, v); }
+    return false;
+  }
+  </script>
+  $.numero1;
+</body>
+</html>

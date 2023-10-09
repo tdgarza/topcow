@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+    <title>JSON con un Script</title>
+</head>
+<body>
+    <h1>Trabajando con un JSON en Script y un Formulario</h1>
+<h3>Agregar Heroes</h3>
+    <form action="viernes.php" method="post">
+        <table>
+            <tr><td>id:</td>
+            <td><input type="text" name="id"></td></tr>
+            <tr><td>Nombre:</td>
+            <td><input type="text" name="nombre"></td></tr>
+            <tr><td>Edad:</td>
+            <td><input type="text" name="edad"></td></tr>
+            <tr><td>Identidad Secreta:</td>
+            <td><input type="text" name="identidadsecreta"></td></tr>
+            <tr><td>Poderes:</td>
+            <td><input type="text" name="poderes"></td></tr>
+            <tr><td>Imagen:</td>
+            <td><input type="text" name="image"></td></tr>
+            <tr><td><input type="submit" name="submit" value="Agregar"></td></tr>
+        </table>
+    </form>
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Identidad Secreta</th>
+            <th>Poderes</th>
+            <th>Imagen</th>
+        </tr>
+    </thead>
+        <tbody id="data-output">
+        </tbody>
+    </table>
+    <script src="4a.js"></script>
+</body>
+</html>

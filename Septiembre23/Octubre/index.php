@@ -21,17 +21,15 @@
         <p class="lead">
           <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
         </p>
-      </div>
-      
-      <?php
+        <?php
       // Configuración de la conexión a la base de datos
       $servername = "localhost";
       $username = "root";
       $password = "";
-      $dbname = "5bprogramacion";
+      $dbname = "pokemon";
   
       // Crear conexión
-      $conn = mysqli_connect($servername, $username, $password, $dbname);
+      $conn = new mysqli($servername, $username, $password, $dbname);
   
       // Verificar la conexión
       if ($conn->connect_error) {
@@ -39,7 +37,7 @@
       }
   
       // Consulta SQL para obtener datos de la tabla
-      $sql = "SELECT * FROM agenda";
+      $sql = "SELECT * FROM Pokemon";
       $result = $conn->query($sql);
   
       // Mostrar los datos en una tabla
@@ -47,7 +45,7 @@
           echo "<table>";
           echo "<tr><th>ID</th><th>Nombre</th><th>Apellido</th><th>Correo Electrónico</th><th>Teléfono</th></tr>";
           while ($row = $result->fetch_assoc()) {
-              echo "<tr><td>" . $row["id"] . "</td><td>" . $row["nombre"] . "</td><td>" . $row["apellido"] . "</td><td>" . $row["telefono"] . "</td><td>" . $row["direccion"] . "</td></tr>";
+              echo "<tr><td>" . $row["Id"] . "</td><td>" . $row["Nombre"] . "</td><td>" . $row["Poder"] . "</td><td>" . $row["telefono"] . "</td><td>" . $row["direccion"] . "</td></tr>";
           }
           echo "</table>";
       } else {
@@ -57,6 +55,9 @@
       // Cerrar la conexión a la base de datos
       $conn->close();
       ?>
+
+      </div>
+      
 
 
 </body>

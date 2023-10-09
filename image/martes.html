@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="martes.css">
+    <title>Objetos en JS</title>
+</head>
+<body>
+    <h1>Otra manera de trabajar con JSON</h1>
+    <div id="target"></div>
+    <script>
+        let data ={
+            "response":{
+                "docs":[
+                    {"id":"1",
+                    "nombre":"Cyclops",
+                    "real":"Scott Summers",
+                    "poderes":"Rayos Opticos",
+                    "imagen":"cyclops.jpg"},
+                    {"id":"2",
+                    "nombre":"Phoenix",
+                    "real":"Jean Grey",
+                    "poderes":"Fuerza Fenix",
+                    "imagen":"phoenix.jpg"}
+                ]
+            }};
+            let target=document.querySelector('#target');
+            data=data.response.docs;
+            data.forEach((value, key)=>{
+                target.innerHTML+=`<div class="image-list">
+                <img src="${value.imagen}" class="image-styles" />
+                <p class="image-nombre">${value.nombre}</p>
+                <p class="image-real">${value.real}</p>
+                <p class="image-poderes">${value.poderes}</p>
+                </div>`
+            });
+    </script>
+</body>
+</html>

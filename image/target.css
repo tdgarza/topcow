@@ -1,0 +1,43 @@
+#target {
+    max-width:100%;
+    width:600px;
+    margin:0 auto;
+  }
+  .image-list {
+      position:relative;
+      float: left;
+      display:inline;
+  }
+  .image-styles {
+      margin:15px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      width: 200px;
+      height: 200px;
+  }
+  .image-title {
+      background:#000;
+      width:80%;
+      position:absolute;
+      bottom:15px;
+      left:15px;
+      color:#f7f7f7;
+      text-align:center;
+      padding:2px;
+      opacity:0.6;
+      filter:alpha(opacity=60);
+      /* For IE8 and earlier */
+  }
+  .image-edad {
+    background:#000;
+    width:80%;
+    position:absolute;
+    bottom:40px;
+    left:15px;
+    color:#f7f7f7;
+    text-align:center;
+    padding:2px;
+    opacity:0.6;
+    filter:alpha(opacity=60);
+    /* For IE8 and earlier */
+}
